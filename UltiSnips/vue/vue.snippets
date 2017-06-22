@@ -1,0 +1,37 @@
+extends javascirpt, html
+
+snippet init "init"
+<template>
+  <div class="${1}-container">
+  </div>
+</template>
+
+<style scoped>
+  .$1-container {
+    margin: 16px;
+  }
+</style>
+
+<script>
+  export default {
+    name: '$1',
+    components: [],
+    data() {
+      return {
+        ${2}
+      };
+    },
+    created() {
+    },
+    mounted() {
+    },
+    computed: {
+    },
+    filters: {
+    },
+    methods: {
+    },
+  };
+</script>
+
+endsnippet 

@@ -1,0 +1,169 @@
+snippet lo "let object"
+let ${1} = {
+  ${2:${VISUAL}}
+};
+endsnippet
+
+snippet lf "let arrow function"
+let ${1} = (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+snippet laf "let async arrow function"
+let ${1} = async (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+snippet co "const object"
+const ${1} = {
+  ${2:${VISUAL}}
+};
+endsnippet
+
+snippet cf "const arrow function"
+const ${1} = (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+snippet cf "const async arrow function"
+const ${1} = async (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+snippet iif "(() => {})()"
+((${1}) => {
+  ${2:${VISUAL}}
+})();
+endsnippet
+
+snippet :f "key function"
+${1}(${2}) {
+  ${3:${VISUAL}}
+},
+endsnippet
+
+snippet :af "key async function"
+async ${1}(${2}) {
+  ${3:${VISUAL}}
+},
+endsnippet
+
+snippet ; "();" i
+(${1});
+endsnippet
+
+snippet :o "key object"
+${1}: {
+  ${2:${VISUAL}}
+},
+endsnippet
+
+snippet el "else" i
+ else {
+  ${1:${VISUAL}}
+}
+endsnippet
+
+snippet ei "else if" i
+ else if ($1) {
+  ${1:${VISUAL}}
+}
+endsnippet
+
+snippet if "if"
+if (${1}) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+snippet im "import"
+import ${1} from '${2}';
+endsnippet
+
+snippet cl "console.log"
+console.log(${1:${VISUAL}});
+endsnippet
+
+snippet cp "console.log(); process.ext()"
+console.log(${1:${VISUAL}}); process.exit();
+endsnippet
+
+snippet aw "() => {}" i
+(${1}) => {
+  ${2:${VISUAL}} 
+}
+endsnippet
+
+snippet an "() => {}" i
+${1} => ${2}
+endsnippet
+
+
+snippet for "for"
+for (let i = 0, len = ${1:object}.length; i < len; i++) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+snippet fof "for of"
+for (const ${1:x} of ${2:object}) {
+  ${3:${VISUAL}}
+}
+endsnippet
+
+snippet fin "for in"
+for (const ${1:x} in ${2:object}) {
+  ${3:${VISUAL}}
+}
+endsnippet
+
+
+snippet try
+try {
+  ${1:${VISUAL}}
+} catch (e) {
+  ${2:fail}
+}
+endsnippet
+
+snippet swi
+switch (${1:value}) {
+  case '${2:one}': {
+    break;
+  }
+  default: break;
+}
+endsnippet
+
+snippet case
+case '${1}': {
+  ${2:${VISUAL}}
+  break;
+}
+endsnippet
+
+snippet whi
+while (${1:value}) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+snippet then
+then((${1:arg}) => {
+  ${2:${VISUAL}}
+}); 
+endsnippet
+
+snippet con
+continue;
+endsnippet
+
+snippet keys "Object.getOwnPropertyNames"
+console.log(Object.getOwnPropertyNames(${1}));
+endsnippet
+
+
