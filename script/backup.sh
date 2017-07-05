@@ -5,5 +5,5 @@ cp -rf .vimrc .vim/UltiSnips .zshrc /Users/zhouxiang/doc/private
 cd /Users/zhouxiang/doc/private
 git add .
 git commit -m "backup"
-git push -all
+git push --all
 echo done!
