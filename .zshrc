@@ -115,7 +115,9 @@ alias l='ls -lh'
 alias bp='~/doc/private/script/backup.sh'
 
 alias -s js='nvim'
-
+alias cl='clear'
+alias mo='./script/mocha.sh'
+alias th='touch'
 
 
 # phantomjs
@@ -125,6 +127,7 @@ export PATH=$PATH:/Users/zhouxiang/tools/phantomjs/bin/
 export PATH=$PATH:/Users/zhouxiang/tools/casperjs/bin/
 
 export PATH=$PATH:/Users/zhouxiang/tools/nvim-osx64/bin/
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # postgres
 export PGDATA=/usr/local/var/postgres
@@ -135,6 +138,7 @@ alias n='npm'
 alias ns='npm start'
 alias nd='npm run deploy'
 alias nb='npm run build'
+alias nt='npm run test'
 
 
 
@@ -176,6 +180,7 @@ alias mn='meteor npm'
 
 #export TERM=xterm-256color
 alias m='/Applications/MacVim.app/Contents/bin/mvim'
+# alias vim='/Applications/MacVim.app/Contents/MacOs/vim'
 #bindkey -v
 #VIMODE='-- INSERT --'
 #function zle-line-init zle-keymap-select {

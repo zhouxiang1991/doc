@@ -5,41 +5,61 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'scrooloose/syntastic'
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'marijnh/tern_for_vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'frankier/neovim-colors-solarized-truecolor-only'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mileszs/ack.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 Plugin 'posva/vim-vue'
 " Plugin 'sekel/vim-vue-syntastic'
 Plugin 'tpope/vim-fugitive'
-Plugin 'VimIM'
+" Plugin 'sjl/gundo.vim'
+" Plugin 'VimIM'
+Plugin 'CodeFalling/fcitx-vim-osx'
 filetype plugin indent on
 synta on
 call vundle#end()
 " colorscheme solarized
 "
-"
+" Set the background theme to dark
 
-"   " :let g:Vimim_shuangpin = 0  
+" Call the theme one
+" (one is the name of color scheme)
+
+" Don't forget set the airline theme as well.
+" let g:airline_theme='solarized'
+
+" This line enables the true color support.
+
+" set termguicolors
+if has("gui_vimr")
+  colorscheme solarized
+  " set background = "dark"
+endif
+
+"   " :let g:Vimim_shuangpin = 0
 " 中文输入时使用英文标点符号
-let g:Vimim_punctuation = -1
+" let g:Vimim_punctuation = -1
 " 设置反斜杠为切换键,关闭gi模式
-let g:Vimim_map = 'no-gi,c-bslash'
-let g:Vimim_mycloud = -1
-let g:Vimim_cloud = ''
-let g:Vimim_toggle = ''
+" let g:Vimim_map = 'c-bslash'
+" let g:Vimim_mycloud = -1
+" let g:Vimim_cloud = ''
+" let g:Vimim_toggle = ''
+
+" gundo
+" nnoremap <F5> :GundoToggle<CR>
 
 " fcitx-remote
 " 输入中后后按<c-space>切换成英文后再次进入中文
@@ -84,49 +104,33 @@ inoremap <silent> <c-space> <esc>:call system('fcitx-remote -c')<cr>
 " easymotion
 let g:EasyMotion_smartcase = 1
 " map f <Plug>(easymotion-prefix)
-map ff <Plug>(easymotion-s)
+" map ff <Plug>(easymotion-s)
 map fs <Plug>(easymotion-f)
-map fl <Plug>(easymotion-lineforward)
-map fj <Plug>(easymotion-j)
-map fk <Plug>(easymotion-k)
-map fh <Plug>(easymotion-linebackward)
+map ffl <Plug>(easymotion-lineforward)
+" map fj <Plug>(easymotion-j)
+" map fk <Plug>(easymotion-k)
+map ffh <Plug>(easymotion-linebackward)
 
 " youcompleteme
+" 修改默认选择补全快捷键
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 
 " ultisnips
+" 指定python路径
 let g:python2_host_prog = '/usr/local/bin/python'
+" 指定自定义代码片段文件夹路径
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:UltiSnipsEnableSnipMate = 0
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<c->"
+" let g:UltiSnipsExpandTrigger = "<c-=>"
+" let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " vim-vue
 au BufNewFile,BufRead *.vue setf vue
 " 防止语法颜色突然消失
 au FileType vue syntax sync fromstart
-" 自动切换注释样式
-let g:ft = ''
-function! NERDCommenter_before()
-  if &ft == 'vue'
-    let g:ft = 'vue'
-    let stack = synstack(line('.'), col('.'))
-    if len(stack) > 0
-      let syn = synIDattr((stack)[0], 'name')
-      if len(syn) > 0
-        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
-      endif
-    endif
-  endif
-endfunction
-function! NERDCommenter_after()
-  if g:ft == 'vue'
-    setf vue
-    let g:ft = ''
-  endif
-endfunction
+
 
 " indentLine
 " 设置缩进线的样式
@@ -148,7 +152,7 @@ let g:syntastic_error_symbol='✗'
 " 设置警告符号
 let g:syntastic_warning_symbol="⚠"
 " 是否在打开文件时检查
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open=0
 " 是否在保存文件后检查
 let g:syntastic_check_on_wq=1
 " let g:syntastic_always_populate_loc_list = 1
@@ -156,6 +160,26 @@ let g:syntastic_check_on_wq=1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1
+" vue文件夹自动切换注释样式
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 
 " 变量列表
@@ -240,192 +264,195 @@ set display=lastline
 let mapleader='-'
 let maplocalleader=' '
 
-tnoremap <c-/> <c-\><c-n>
-tnoremap <c-,> <c-\><c-n>gt<cr>
-tnoremap <c-.> <c-\><c-n>GT<cr>
+if has('nvim')
+  tnoremap <c-/> <c-\><c-n>
+  tnoremap <c-,> <c-\><c-n>gt<cr>
+  tnoremap <c-.> <c-\><c-n>GT<cr>
+endif
+
 
 " 普通模式=====================================
-map q -cc
-map w -ci
-nnoremap M $
-nnoremap H ^
-" nnoremap s ;
-nnoremap ; yy
-" nnoremap <c-w> <c-w>w
-nnoremap e <c-b>
-nnoremap m <c-f>
-nnoremap ' ``
-nnoremap z ~<left>
-nnoremap <silent> <localleader>; "+yy
-nnoremap <cr> G
-nnoremap K o<esc>
-nnoremap L yyp
-noremap < <<<esc>
-noremap > >><esc>
-noremap P o<esc>p
-nnoremap <localleader>p "+p
-nnoremap <localleader>P o<esc>"+p
-nnoremap U <c-r>
-nnoremap <localleader><space> i<space><esc>
-nnoremap { f{%
-nnoremap [ f[%
-nnoremap ( f(%
-nnoremap vv <c-v>
-nnoremap <localleader>t :terminal<cr>
-" nmap <localleader>c -cs
-nnoremap <c-.> gt
-nnoremap <c-,> gT
-" nnoremap <c-/> :bd<cr>
-" nnoremap <localleader>va :Tlist<cr>
-" nnoremap <localleader>s :nmapc<cr>:imapc<cr>:vmapc<cr>:omapc<cr>:w<cr>:so ~/.vimrc<cr>
-" nnoremap <localleader>so :w<cr>:so ~/.vimrc<cr>
-" nnoremap <localleader>ca :w<cr>:!casperjs %<cr>
-nnoremap <localleader>n :w<cr>:!node %<cr>
-nnoremap <localleader>b :w<cr>:!babel-node %<cr>
-" nnoremap <localleader>ls :ls<cr>
-" nnoremap <localleader>e : e!<cr>
-nnoremap <localleader>w :w<cr>
-nnoremap <localleader>c :%s/\s\+$//g<cr>
-nnoremap <localleader>q :q!<cr>
-nnoremap <localleader>a :wq<cr>
-" nnoremap <silent><C-j> :m .+1<CR>==
-" nnoremap <silent><C-k> :m .-2<CR>==
-noremap j gj
-noremap k gk
-nnoremap cw ciw
-nnoremap dw diw
-nnoremap vw viw
-nnoremap yw yiw
-nnoremap caw caw
-nnoremap daw daw
-nnoremap vaw vaw
-nnoremap yaw yaw
-nnoremap c) ci)
-nnoremap d) di)
-nnoremap v) vi)
-nnoremap y) yi)
-nnoremap ca) ca)
-nnoremap da) da)
-nnoremap va) va)
-nnoremap ya) ya)
-nnoremap c' ci'
-nnoremap d' di'
-nnoremap v' vi'
-nnoremap y' yi'
-nnoremap ca' ca'
-nnoremap da' da'
-nnoremap va' va'
-nnoremap ya' ya'
-nnoremap ca{ ca{
-nnoremap da{ da{
-nnoremap va{ va{
-nnoremap ya{ ya{
-nnoremap c{ c{
-nnoremap d{ d{
-nnoremap v{ v{
-nnoremap y{ y{
-nnoremap c" ci"
-nnoremap d" di"
-nnoremap v" vi"
-nnoremap y" yi"
-nnoremap ca" ca"
-nnoremap da" da"
-nnoremap va" va"
-nnoremap ya" ya"
-nnoremap c[ ci[
-nnoremap d[ di[
-nnoremap v[ vi[
-nnoremap y[ yi[
-nnoremap ca[ ca[
-nnoremap da[ da[
-nnoremap va[ va[
-nnoremap ya[ ya[
-nnoremap c` ci`
-nnoremap d` di`
-nnoremap v` vi`
-nnoremap y` yi`
-nnoremap ca` ca`
-nnoremap va` va`
-nnoremap da` da`
-nnoremap ya` ya`
-nmap t' vwS'
-nmap t" vwS"
-nmap t[ vwS[
-nmap t{ vwS{
-nmap t) vwS)
-nmap t` vwS`
-nmap t> vwS>
-nmap d) ds)
-nmap d" ds"
-nmap d' ds'
-nmap d` ds`
-nmap d[ ds[
-nmap d{ ds{
-nmap d> ds>
+ map q -cc
+ map w -ci
+ nnoremap M $
+ nnoremap H ^
+ " nnoremap s ;
+ nnoremap ; yy
+ " nnoremap <c-w> <c-w>w
+ nnoremap e <c-b>
+ nnoremap m <c-f>
+ nnoremap ' ``
+ nnoremap z ~<left>
+ nnoremap <silent> <localleader>; "+yy
+ nnoremap <cr> G
+ nnoremap K o<esc>
+ nnoremap L yyp
+ noremap < <<<esc>
+ noremap > >><esc>
+ noremap P o<esc>p
+ nnoremap <localleader>p "+p
+ nnoremap <localleader>P o<esc>"+p
+ nnoremap U <c-r>
+ nnoremap <localleader><space> i<space><esc>
+ nnoremap { f{%
+ nnoremap [ f[%
+ nnoremap ( f(%
+ nnoremap vv <c-v>
+ nnoremap <localleader>t :terminal<cr>
+ " nmap <localleader>c -cs
+ nnoremap <c-.> gt
+ nnoremap <c-,> gT
+ " nnoremap <c-/> :bd<cr>
+ " nnoremap <localleader>va :Tlist<cr>
+ " nnoremap <localleader>s :nmapc<cr>:imapc<cr>:vmapc<cr>:omapc<cr>:w<cr>:so ~/.vimrc<cr>
+ " nnoremap <localleader>so :w<cr>:so ~/.vimrc<cr>
+ " nnoremap <localleader>ca :w<cr>:!casperjs %<cr>
+ nnoremap <localleader>n :w<cr>:!node %<cr>
+ nnoremap <localleader>b :w<cr>:!babel-node %<cr>
+ " nnoremap <localleader>ls :ls<cr>
+ " nnoremap <localleader>e : e!<cr>
+ nnoremap <localleader>w :w<cr>
+ nnoremap <localleader>c :%s/\s\+$//g<cr>
+ nnoremap <localleader>q :q!<cr>
+ nnoremap <localleader>a :wq<cr>
+ " nnoremap <silent><C-j> :m .+1<CR>==
+ " nnoremap <silent><C-k> :m .-2<CR>==
+ noremap j gj
+ noremap k gk
+ nnoremap cw ciw
+ nnoremap dw diw
+ nnoremap vw viw
+ nnoremap yw yiw
+ nnoremap caw caw
+ nnoremap daw daw
+ nnoremap vaw vaw
+ nnoremap yaw yaw
+ nnoremap c) ci)
+ nnoremap d) di)
+ nnoremap v) vi)
+ nnoremap y) yi)
+ nnoremap ca) ca)
+ nnoremap da) da)
+ nnoremap va) va)
+ nnoremap ya) ya)
+ nnoremap c' ci'
+ nnoremap d' di'
+ nnoremap v' vi'
+ nnoremap y' yi'
+ nnoremap ca' ca'
+ nnoremap da' da'
+ nnoremap va' va'
+ nnoremap ya' ya'
+ nnoremap ca{ ca{
+ nnoremap da{ da{
+ nnoremap va{ va{
+ nnoremap ya{ ya{
+ nnoremap c{ c{
+ nnoremap d{ d{
+ nnoremap v{ v{
+ nnoremap y{ y{
+ nnoremap c" ci"
+ nnoremap d" di"
+ nnoremap v" vi"
+ nnoremap y" yi"
+ nnoremap ca" ca"
+ nnoremap da" da"
+ nnoremap va" va"
+ nnoremap ya" ya"
+ nnoremap c[ ci[
+ nnoremap d[ di[
+ nnoremap v[ vi[
+ nnoremap y[ yi[
+ nnoremap ca[ ca[
+ nnoremap da[ da[
+ nnoremap va[ va[
+ nnoremap ya[ ya[
+ nnoremap c` ci`
+ nnoremap d` di`
+ nnoremap v` vi`
+ nnoremap y` yi`
+ nnoremap ca` ca`
+ nnoremap va` va`
+ nnoremap da` da`
+ nnoremap ya` ya`
+ nmap t' vwS'
+ nmap t" vwS"
+ nmap t[ vwS[
+ nmap t{ vwS{
+ nmap t) vwS)
+ nmap t` vwS`
+ nmap t> vwS>
+ nmap d) ds)
+ nmap d" ds"
+ nmap d' ds'
+ nmap d` ds`
+ nmap d[ ds[
+ nmap d{ ds{
+ nmap d> ds>
 
-" map <localleader>z :call Z()<cr>;
-" map <localleader>x :call X()<cr>;
-" func!  Z()
-  " exec "normal ^"
-  " exec "normal i//\<space>"
-" endfunc
-" func!  X()
-  " exec "normal ^"
-  " exec "normal xxx"
-" endfunc
+ " map <localleader>z :call Z()<cr>;
+ " map <localleader>x :call X()<cr>;
+ " func!  Z()
+ " " exec "normal ^"
+ " " exec "normal i//\<space>"
+ " endfunc
+ " func!  X()
+ " " exec "normal ^"
+ " " exec "normal xxx"
+ " endfunc
 
 
-" 插入模式=====================================
-" inoremap <tab> <c-n>
-" inoremap <c-space> <c-n>
-inoremap <c-w> <c-w>
-inoremap <c-u> <c-u>
-" inoremap <c-l> <c-o>d$
-" inoremap <c-k> <c-o>de
-inoremap <c-o> <c-o>o
-inoremap <c-l> <c-o>O
-inoremap <c-s> <c-o>S
-" inoremap <c-j> o<esc>ddO
-inoremap jj <Esc>
-" inoremap ef<space> <space>else if () {}<left><cr><esc><up>f)i
-" inoremap el<space> <space>else {}<left><cr><esc>O
-" inoremap if<space> if () {}<left><cr><esc>kf)i
-" inoremap wh<space> while () {}<left><cr><esc>kf)i
-" inoremap try<space> try {}<left><cr><right> catch (e) {}<left><cr><esc>2<up>o
+ " 插入模式=====================================
+ " inoremap <tab> <c-n>
+ " inoremap <c-space> <c-n>
+ inoremap <c-w> <c-w>
+ inoremap <c-u> <c-u>
+ " inoremap <c-l> <c-o>d$
+ " inoremap <c-k> <c-o>de
+ inoremap <c-o> <c-o>o
+ inoremap <c-l> <c-o>O
+ inoremap <c-s> <c-o>S
+ " inoremap <c-j> o<esc>ddO
+ inoremap jj <Esc>
+ " inoremap ef<space> <space>else if () {}<left><cr><esc><up>f)i
+ " inoremap el<space> <space>else {}<left><cr><esc>O
+ " inoremap if<space> if () {}<left><cr><esc>kf)i
+ " inoremap wh<space> while () {}<left><cr><esc>kf)i
+ " inoremap try<space> try {}<left><cr><right> catch (e) {}<left><cr><esc>2<up>o
 
-" inoremap for<space> for (let i = 0; i < b; i++) {}<left><cr><esc>kfbxi
-" inoremap fin<space> for (const x in b) {}<left><cr><esc>kfbxi
-" inoremap fof<space> for (const x of b) {}<left><cr><esc>kfbxi
-" inoremap swi<space> switch () {}<left><cr><esc>kf)i
-" inoremap fun<space> function () {}<left><cr><esc>kf)i
-" inoremap =><space> () => {}<left><cr><esc>kf)i
-" inoremap lp<space> logger.error(); process.exit();<esc>2F)i
-" inoremap lt<space> logger.trace();<left><left>
-" inoremap ld<space> logger.debug();<left><left>
-" inoremap le<space> logger.error();<left><left>
-" inoremap pe<space> process.exit();<esc>
-" inoremap cp<space> console.log(); process.exit();<esc>2F)i
-" inoremap cl<space> console.log();<left><left>
+ " inoremap for<space> for (let i = 0; i < b; i++) {}<left><cr><esc>kfbxi
+ " inoremap fin<space> for (const x in b) {}<left><cr><esc>kfbxi
+ " inoremap fof<space> for (const x of b) {}<left><cr><esc>kfbxi
+ " inoremap swi<space> switch () {}<left><cr><esc>kf)i
+ " inoremap fun<space> function () {}<left><cr><esc>kf)i
+ " inoremap =><space> () => {}<left><cr><esc>kf)i
+ " inoremap lp<space> logger.error(); process.exit();<esc>2F)i
+ " inoremap lt<space> logger.trace();<left><left>
+ " inoremap ld<space> logger.debug();<left><left>
+ " inoremap le<space> logger.error();<left><left>
+ " inoremap pe<space> process.exit();<esc>
+ " inoremap cp<space> console.log(); process.exit();<esc>2F)i
+ " inoremap cl<space> console.log();<left><left>
 
-" 视觉模式=====================================
-vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
-vnoremap <localleader>; "+y
-vnoremap ; y
-vnoremap { f{%
-vnoremap [ f[%
-vnoremap ( f(%
-vnoremap u <esc>
-vnoremap M $
-vnoremap H ^
-vnoremap L ykp
-vmap ' S'
-vmap " S"
-vmap ` S`
-vmap ) S)
-vmap [ S[
-vmap { S}
+ " 视觉模式=====================================
+ vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+ vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
+ vnoremap <localleader>; "+y
+ vnoremap ; y
+ vnoremap { f{%
+ vnoremap [ f[%
+ vnoremap ( f(%
+ vnoremap u <esc>
+ vnoremap M $
+ vnoremap H ^
+ vnoremap L ykp
+ vmap ' S'
+ vmap " S"
+ vmap ` S`
+ vmap ) S)
+ vmap [ S[
+ vmap { S}
 
-" 操作等待模式=====================================
-onoremap M $
-onoremap H ^
+ " 操作等待模式=====================================
+ onoremap M $
+ onoremap H ^

@@ -1,0 +1,29 @@
+snippet strErr ""
+if (!_.isString(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是字符串\`);
+}
+endsnippet
+
+snippet objErr ""
+if (!_.isObject(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是对象\`);
+}
+endsnippet
+
+snippet arrErr ""
+if (!_.isArray(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是数组\`);
+}
+endsnippet
+
+snippet dateErr ""
+if (!_.isDate(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是日期\`);
+}
+endsnippet
+
+snippet numErr ""
+if (!_.isNumber(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是数字\`);
+}
+endsnippet

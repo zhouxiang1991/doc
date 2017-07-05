@@ -1,0 +1,18 @@
+snippet ex "mocha chai expect"
+import 'babel-polyfill';
+import _ from 'lodash';
+import \{ expect \} from 'chai';
+import $1 from '../lib/methods/${1}.js';
+
+describe('${2}', function () {
+  it("return true if arg is $3", async function () {
+    const res = await $1(${3});
+    expect(res).to.be.true;
+  });
+  it("return false if arg is $4", async function () {
+    const res = await $1(${4});
+    expect(res).to.be.false
+  });
+});
+endsnippet
+

@@ -28,7 +28,7 @@ const ${1} = (${2}) => {
 };
 endsnippet
 
-snippet cf "const async arrow function"
+snippet caf "const async arrow function"
 const ${1} = async (${2}) => {
   ${3:${VISUAL}}
 };
@@ -81,7 +81,7 @@ if (${1}) {
 endsnippet
 
 snippet im "import"
-import ${1} from '${2}';
+import ${1} from '$1';
 endsnippet
 
 snippet cl "console.log"
@@ -126,7 +126,7 @@ snippet try
 try {
   ${1:${VISUAL}}
 } catch (e) {
-  ${2:fail}
+  ${2}
 }
 endsnippet
 
@@ -166,4 +166,34 @@ snippet keys "Object.getOwnPropertyNames"
 console.log(Object.getOwnPropertyNames(${1}));
 endsnippet
 
+snippet pe "process.exit()"
+process.exit();
+endsnippet
 
+snippet type "Object.toString()"
+console.log(Object.prototype.toString.call(${1}));
+endsnippet
+
+snippet err "throw new Error('')"
+throw new Error('${1}');
+endsnippet
+
+snippet et "throw new TypeError('')"
+throw new TypeError('${1}');
+endsnippet
+
+snippet er "throw new TypeError('')"
+throw new RangeError('${1}');
+endsnippet
+
+snippet fun "function () {}"
+function (${1}) {
+  ${2}
+}
+endsnippet
+
+snippet fe "forEach" i
+forEach((${1}) => {
+  ${2}
+});
+endsnippet
