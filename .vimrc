@@ -456,3 +456,6 @@ endif
  " 操作等待模式=====================================
  onoremap M $
  onoremap H ^
+
+noremap <c-up> :cp<cr>
+noremap <c-down> :cn<cr>

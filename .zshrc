@@ -111,6 +111,7 @@ alias rm='~/doc/private/script/rm.sh'
 alias qk='quick-look'
 alias k='cd .. && ll'
 alias l='ls -lh'
+alias rr='rm'
 
 alias bp='~/doc/private/script/backup.sh'
 
@@ -139,6 +140,7 @@ alias ns='npm start'
 alias nd='npm run deploy'
 alias nb='npm run build'
 alias nt='npm run test'
+alias np='npm run prod'
 
 
 

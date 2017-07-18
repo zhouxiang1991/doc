@@ -27,3 +27,9 @@ if (!_.isNumber(${1})) {
   throw new TypeError(\`$1=\$\{$1\} 不是数字\`);
 }
 endsnippet
+
+snippet intErr ""
+if (!_.isInteger(${1})) {
+  throw new TypeError(\`$1=\$\{$1\} 不是整数\`);
+}
+endsnippet
