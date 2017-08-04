@@ -1,29 +1,73 @@
 snippet ebtn "el-button"
-<el-button ${1}>
+<el-button 
+  ${1}>
   ${2:${VISUAL}}
 </el-button>
 endsnippet
 
-snippet einp "el-input"
-<el-input ${1}>
+snippet einput "el-input"
+<el-input 
+  ${1}>
   ${2:${VISUAL}}
 </el-input>
 endsnippet
 
-snippet eswi "el-input"
+snippet eswitch "el-input"
 <el-switch ${1}>
   ${2:${VISUAL}}
 </el-switch>
 endsnippet
 
-snippet efi "el-input"
-<el-form-item ${1}>
-  ${2:${VISUAL}}
-</el-form-item>
-endsnippet
-
-snippet efor "el-input"
-<el-form ${1}>
-  ${2:${VISUAL}}
+snippet eform "el-input"
+<el-form 
+  ${1}>
+  <el-form-item 
+    ${2}>
+  </el-form-item>
+  ${3:${VISUAL}}
 </el-form>
 endsnippet
+
+snippet econfirm "el-comfirm"
+this.$confirm('${1}', '${2}', {
+  confirmButtonText: '确定',
+  cancelButtonText: '取消',
+  type: 'warning'
+}).then(() => {
+  this.$message({
+    type: 'success',
+    message: '成功!',
+  });
+}).catch(() => {
+  this.$message({
+    type: 'info',
+    message: '取消',
+  });          
+});
+endsnippet
+
+snippet edia "el-dialog"
+<el-dialog
+  :visible.sync=""
+  :before-close="handleDialogCancel"
+  size="full"
+  title="">
+  <span slot="footer">
+    <el-button @click="handleDialogCancel">取 消</el-button>
+    <el-button type="primary" @click="handleDialogCancel">确 定</el-button>
+  </span>
+</el-dialog>
+endsnippet
+
+snippet emsg
+this.$message({
+  type: '${1}',
+  showClose: true,
+  message: '${2}',
+});
+endsnippet
+
+
+
+
+

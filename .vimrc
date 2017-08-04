@@ -46,7 +46,7 @@ call vundle#end()
 " set termguicolors
 if has("gui_vimr")
   colorscheme solarized
-  " set background = "dark"
+  set background = "dark"
 endif
 
 "   " :let g:Vimim_shuangpin = 0
