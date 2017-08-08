@@ -215,6 +215,14 @@ snippet imm ""
 import $1 from './${1}.js';
 endsnippet
 
+snippet irm ""
+import $1 from './lib/methods/${1}.js';
+endsnippet
+
+snippet iro ""
+import $1 from './lib/models/${1}.js';
+endsnippet
+
 snippet im_ ""
 import _ from 'lodash';
 endsnippet
@@ -239,6 +247,22 @@ snippet has "Object.hasOwnProperty"
 if (Object.hasOwnProperty.call(${1}, ${2})) {
   ${3:${VISUAL}}
 }
+endsnippet
+
+snippet mo ""
+import mongoose from 'mongoose';
+
+mongoose.Promise = global.Promise;
+const url = ${1};
+const db = mongoose.createConnection(url);
+const tableName = ${2};
+const {3} = db.model(tableName, mongoose.Schema({
+  _id: String,
+  ${4}
+}, {
+  versionKey: false,
+}), tableName);
+export default Users;
 endsnippet
 
 

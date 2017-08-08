@@ -97,7 +97,7 @@ alias ll='ls -lh'
 alias grep='grep --color'
 alias la='ll -a'
 alias c='cd'
-alias n='node'
+# alias n='node'
 alias mk='mkdir '
 alias cp='cp -rf '
 alias b='babel-node'
@@ -119,6 +119,7 @@ alias -s js='nvim'
 alias cl='clear'
 alias mo='./script/mocha.sh'
 alias th='touch'
+alias init='~/doc/private/script/init.sh'
 
 
 # phantomjs
@@ -135,7 +136,7 @@ export PGDATA=/usr/local/var/postgres
 
 # npm
 export NODE_PATH=/usr/local/lib/node_modules
-alias n='npm'
+# alias n='npm'
 alias ns='npm start'
 alias nd='npm run deploy'
 alias nb='npm run build'
