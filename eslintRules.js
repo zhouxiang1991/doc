@@ -90,6 +90,10 @@ module.exports = {
       'forOfStatement',
     ],
     'no-await-in-loop': 0,
-    // 'global-require': 0,
+    'global-require': 0,
+    // 允许使用死循环
+    'no-constant-condition': 1,
+    'max-len': 1,
+    'guard-for-in': 0,
   },
 };

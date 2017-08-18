@@ -21,7 +21,7 @@ Plugin 'scrooloose/nerdcommenter'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
-" Plugin 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 Plugin 'posva/vim-vue'
 " Plugin 'sekel/vim-vue-syntastic'
 Plugin 'tpope/vim-fugitive'
@@ -126,6 +126,10 @@ let g:UltiSnipsEnableSnipMate = 0
 " let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" tagbar
+let g:tagbar_ctags_bin = '/usr/local/bin/myctags'
+let g:tagbar_autofocus = 1
+
 " vim-vue
 au BufNewFile,BufRead *.vue setf vue
 " 防止语法颜色突然消失
@@ -156,7 +160,7 @@ let g:syntastic_check_on_open=0
 " 是否在保存文件后检查
 let g:syntastic_check_on_wq=1
 " let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1
@@ -272,6 +276,12 @@ endif
 
 
 " 普通模式=====================================
+ nnoremap <localleader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+ nnoremap <c-n> :cn
+ nnoremap <c-p> :cp
+ nnoremap <c-t> :TagbarToggle<CR>
+ noremap <localleader>x ^i<!-- <esc>A --><esc>
+ noremap <localleader>z ^5x$xxxx
  map q -cc
  map w -ci
  nnoremap M $
@@ -389,6 +399,7 @@ endif
  nmap d[ ds[
  nmap d{ ds{
  nmap d> ds>
+
 
  " map <localleader>z :call Z()<cr>;
  " map <localleader>x :call X()<cr>;
