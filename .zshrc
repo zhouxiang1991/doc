@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # bash
 alias ls='ls -G'
 alias v='nvim'
+alias vim='/usr/local/Cellar/vim/8.0.0983/bin/vim'
 alias ll='ls -lh'
 alias grep='grep --color'
 alias la='ll -a'

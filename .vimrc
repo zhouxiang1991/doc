@@ -3,7 +3,22 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'scrooloose/syntastic'
+Plugin 'gregsexton/matchtag'
+Plugin 'ap/vim-css-color'
+" Plugin 'scrooloose/syntastic'
+Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'junegunn/limelight.vim'
+Plugin 'mhinz/vim-signify'
+Plugin 'matze/vim-move'
+" Plugin 'tpope/vim-commentary'
+Plugin 'terryma/vim-expand-region'
+" Plugin 'airblade/vim-gitgutter'
+Plugin 'haya14busa/incsearch.vim'
+" Plugin 'justinmk/vim-sneak'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/fzf'
+Plugin 'w0rp/ale'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'VundleVim/Vundle.vim'
 " Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
@@ -14,10 +29,11 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'frankier/neovim-colors-solarized-truecolor-only'
-Plugin 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'mileszs/ack.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
@@ -42,11 +58,41 @@ call vundle#end()
 " let g:airline_theme='solarized'
 
 " This line enables the true color support.
+" ale
+" let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_echo_msg_error_Str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_text_changed = 'never'
+nnoremap sa :ALEDisable<cr>
+
+" let g:ale_lint_on_insert_leave = 1
+" 快速导航
+nmap <silent> <C-l> <Plug>(ale_previous_wrap)
+" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" vim-move
+let g:move_key_modifier = 'C'
+nnoremap <C-k>   Move current line/selections up
+nnoremap <C-j>   Move current line/selections down
 
 " set termguicolors
 if has("gui_vimr")
   colorscheme solarized
   set background = "dark"
+  " colorscheme gruvbox
+  " set background = "light"
+else
+  colorscheme solarized
+  " set background = "dark"
 endif
 
 "   " :let g:Vimim_shuangpin = 0
@@ -60,10 +106,16 @@ endif
 
 " gundo
 " nnoremap <F5> :GundoToggle<CR>
+"
+"vim-indent-guide
+let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_auto_colors = 1
+hi IndentGuidesOdd  guibg=red   ctermbg=231
+hi IndentGuidesEven guibg=green ctermbg=230
 
 " fcitx-remote
 " 输入中后后按<c-space>切换成英文后再次进入中文
-inoremap <silent> <c-space> <esc>:call system('fcitx-remote -c')<cr>
+" inoremap <silent> <c-space> <esc>:call system('fcitx-remote -c')<cr>
 " nnoremap <c-[> :call A()<cr>
 " function! A()
   " let input_status = system('fcitx-remote')
@@ -74,9 +126,6 @@ inoremap <silent> <c-space> <esc>:call system('fcitx-remote -c')<cr>
     " echo 1
      " call system('fcitx-remote -o')
 " endfunction
-
-
-
 
 " function! Fcitx2en()
     " let input_status = system('fcitx-remote')
@@ -99,6 +148,8 @@ inoremap <silent> <c-space> <esc>:call system('fcitx-remote -c')<cr>
 " au InsertLeave * call Fcitx2en()
 " au InsertEnter * call Fcitx2zh()
 
+" expand_region
+let g:expand_region_text_objects = { 'a}': 1 }
 
 
 " easymotion
@@ -129,11 +180,23 @@ let g:UltiSnipsEnableSnipMate = 0
 " tagbar
 let g:tagbar_ctags_bin = '/usr/local/bin/myctags'
 let g:tagbar_autofocus = 1
+nnoremap <c-t> :TagbarToggle<CR>
 
 " vim-vue
 au BufNewFile,BufRead *.vue setf vue
 " 防止语法颜色突然消失
 au FileType vue syntax sync fromstart
+
+" CtrlSF
+vmap <c-f> <Plug>CtrlSFVwordExec
+nmap <c-f> <Plug>CtrlSFCwordPath
+nnoremap <c-s> :CtrlSF
+
+" fzf
+nnoremap <c-z>  :FZF<cr>
+
+" Ack
+nnoremap <c-a> :Ack
 
 
 " indentLine
@@ -141,26 +204,26 @@ au FileType vue syntax sync fromstart
 let g:indentLine_char='|'
 
 " syntastic
-let g:syntastic_vue_checkers = ['eslint']
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_vue_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 
-" let g:syntastic_html_checkers = ['tidy']
-" let g:syntastic_css_checkers = ['csslint']
+" " let g:syntastic_html_checkers = ['tidy']
+" " let g:syntastic_css_checkers = ['csslint']
 
-let g:syntastic_auto_jump = 3
-let g:syntastic_enable_highlighting=1
-" let g:syntastic_javascript_eslint_exec = 'eslint'
-let g:syntastic_enable_signs = 1
-" 设置错误符号
-let g:syntastic_error_symbol='✗'
-" 设置警告符号
-let g:syntastic_warning_symbol="⚠"
-" 是否在打开文件时检查
-let g:syntastic_check_on_open=0
-" 是否在保存文件后检查
-let g:syntastic_check_on_wq=1
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_auto_jump = 3
+" let g:syntastic_enable_highlighting=1
+" " let g:syntastic_javascript_eslint_exec = 'eslint'
+" let g:syntastic_enable_signs = 1
+" " 设置错误符号
+" let g:syntastic_error_symbol='✗'
+" " 设置警告符号
+" let g:syntastic_warning_symbol="⚠"
+" " 是否在打开文件时检查
+" let g:syntastic_check_on_open=0
+" " 是否在保存文件后检查
+" let g:syntastic_check_on_wq=1
+" " let g:syntastic_always_populate_loc_list = 1
+" " let g:syntastic_auto_loc_list = 1
 
 " nerdcommenter
 let g:NERDSpaceDelims = 1
@@ -185,17 +248,9 @@ function! NERDCommenter_after()
   endif
 endfunction
 
-
-" 变量列表
-" let Tlist_Ctags_Cmd = '/usr/local/bin/myctags'
-" let Tlist_Exit_OnlyWindow = 1          "如果taglist窗口是最后一个窗口，则退出vim
-" let Tlist_Use_Left_Window = 1         "在右侧窗口中显示taglist窗口
-" let Tlist_Use_SingleClick = 1
-" let Tlist_File_Fold_Auto_Close = 1
-" let Tlist_Sort_Type = 'name'
-
 "记住最后一次编辑的位置
 autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" |  endif
+
 
 " vim设置=========================================================
 
@@ -276,10 +331,9 @@ endif
 
 
 " 普通模式=====================================
- nnoremap <localleader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
- nnoremap <c-n> :cn
- nnoremap <c-p> :cp
- nnoremap <c-t> :TagbarToggle<CR>
+ " nnoremap <c-s-n> :cn
+ nmap + <Plug>(expand_region_expand)oH
+ " nnoremap <c-s-p> :cp
  noremap <localleader>x ^i<!-- <esc>A --><esc>
  noremap <localleader>z ^5x$xxxx
  map q -cc
@@ -333,18 +387,18 @@ endif
  nnoremap dw diw
  nnoremap vw viw
  nnoremap yw yiw
- nnoremap caw caw
- nnoremap daw daw
- nnoremap vaw vaw
- nnoremap yaw yaw
+ " nnoremap caw caw
+ " nnoremap daw daw
+ " nnoremap vaw vaw
+ " nnoremap yaw yaw
  nnoremap c) ci)
  nnoremap d) di)
  nnoremap v) vi)
  nnoremap y) yi)
- nnoremap ca) ca)
- nnoremap da) da)
- nnoremap va) va)
- nnoremap ya) ya)
+ " nnoremap ca) ca)
+ " nnoremap da) da)
+ " nnoremap va) va)
+ " nnoremap ya) ya)
  nnoremap c' ci'
  nnoremap d' di'
  nnoremap v' vi'
@@ -353,38 +407,42 @@ endif
  nnoremap da' da'
  nnoremap va' va'
  nnoremap ya' ya'
- nnoremap ca{ ca{
- nnoremap da{ da{
- nnoremap va{ va{
- nnoremap ya{ ya{
+ " nnoremap ca{ ca{
+ " nnoremap da{ da{
+ " nnoremap va{ va{
+ " nnoremap ya{ ya{
  nnoremap c{ c{
  nnoremap d{ d{
- nnoremap v{ v{
+ nnoremap v{ vi{
  nnoremap y{ y{
  nnoremap c" ci"
  nnoremap d" di"
  nnoremap v" vi"
  nnoremap y" yi"
- nnoremap ca" ca"
- nnoremap da" da"
- nnoremap va" va"
- nnoremap ya" ya"
+ " nnoremap ca" ca"
+ " nnoremap da" da"
+ " nnoremap va" va"
+ " nnoremap ya" ya"
  nnoremap c[ ci[
  nnoremap d[ di[
  nnoremap v[ vi[
  nnoremap y[ yi[
- nnoremap ca[ ca[
- nnoremap da[ da[
- nnoremap va[ va[
- nnoremap ya[ ya[
+ " nnoremap ca[ ca[
+ " nnoremap da[ da[
+ " nnoremap va[ va[
+ " nnoremap ya[ ya[
  nnoremap c` ci`
  nnoremap d` di`
  nnoremap v` vi`
  nnoremap y` yi`
- nnoremap ca` ca`
- nnoremap va` va`
- nnoremap da` da`
- nnoremap ya` ya`
+ nnoremap ct cit
+ nnoremap dt dit
+ nnoremap vt vit
+ nnoremap yt yit
+ " nnoremap ca` ca`
+ " nnoremap va` va`
+ " nnoremap da` da`
+ " nnoremap ya` ya`
  nmap t' vwS'
  nmap t" vwS"
  nmap t[ vwS[
@@ -401,18 +459,6 @@ endif
  nmap d> ds>
 
 
- " map <localleader>z :call Z()<cr>;
- " map <localleader>x :call X()<cr>;
- " func!  Z()
- " " exec "normal ^"
- " " exec "normal i//\<space>"
- " endfunc
- " func!  X()
- " " exec "normal ^"
- " " exec "normal xxx"
- " endfunc
-
-
  " 插入模式=====================================
  " inoremap <tab> <c-n>
  " inoremap <c-space> <c-n>
@@ -425,29 +471,10 @@ endif
  inoremap <c-s> <c-o>S
  " inoremap <c-j> o<esc>ddO
  inoremap jj <Esc>
- " inoremap ef<space> <space>else if () {}<left><cr><esc><up>f)i
- " inoremap el<space> <space>else {}<left><cr><esc>O
- " inoremap if<space> if () {}<left><cr><esc>kf)i
- " inoremap wh<space> while () {}<left><cr><esc>kf)i
- " inoremap try<space> try {}<left><cr><right> catch (e) {}<left><cr><esc>2<up>o
-
- " inoremap for<space> for (let i = 0; i < b; i++) {}<left><cr><esc>kfbxi
- " inoremap fin<space> for (const x in b) {}<left><cr><esc>kfbxi
- " inoremap fof<space> for (const x of b) {}<left><cr><esc>kfbxi
- " inoremap swi<space> switch () {}<left><cr><esc>kf)i
- " inoremap fun<space> function () {}<left><cr><esc>kf)i
- " inoremap =><space> () => {}<left><cr><esc>kf)i
- " inoremap lp<space> logger.error(); process.exit();<esc>2F)i
- " inoremap lt<space> logger.trace();<left><left>
- " inoremap ld<space> logger.debug();<left><left>
- " inoremap le<space> logger.error();<left><left>
- " inoremap pe<space> process.exit();<esc>
- " inoremap cp<space> console.log(); process.exit();<esc>2F)i
- " inoremap cl<space> console.log();<left><left>
 
  " 视觉模式=====================================
- vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
- vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
+ " vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+ " vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
  vnoremap <localleader>; "+y
  vnoremap ; y
  vnoremap { f{%
@@ -463,10 +490,9 @@ endif
  vmap ) S)
  vmap [ S[
  vmap { S}
+ vmap + f{<Plug>(expand_region_expand)oH
+ vmap _ f{<Plug>(expand_region_shrink)oH
 
  " 操作等待模式=====================================
  onoremap M $
  onoremap H ^
-
-noremap <c-up> :cp<cr>
-noremap <c-down> :cn<cr>
