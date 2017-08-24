@@ -5,6 +5,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gregsexton/matchtag'
 Plugin 'ap/vim-css-color'
+Plugin 'wellle/targets.vim'
 " Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'junegunn/limelight.vim'
@@ -35,7 +36,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
 " Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'honza/vim-snippets'
+" Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
 Plugin 'majutsushi/tagbar'
 Plugin 'posva/vim-vue'
@@ -171,7 +172,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " 指定python路径
 let g:python2_host_prog = '/usr/local/bin/python'
 " 指定自定义代码片段文件夹路径
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsSnippetsDir = '/Users/zhouxiang/doc/private/UltiSnips'
 let g:UltiSnipsEnableSnipMate = 0
 " let g:UltiSnipsExpandTrigger = "<c-=>"
 " let g:UltiSnipsJumpForwardTrigger = "<c-j>"
@@ -250,6 +251,7 @@ endfunction
 
 "记住最后一次编辑的位置
 autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" |  endif
+autocmd BufReadPost *.snippets  nnoremap new isnippet  ""<cr>endsnippet<esc>O
 
 
 " vim设置=========================================================
@@ -331,168 +333,171 @@ endif
 
 
 " 普通模式=====================================
- " nnoremap <c-s-n> :cn
- nmap + <Plug>(expand_region_expand)oH
- " nnoremap <c-s-p> :cp
- noremap <localleader>x ^i<!-- <esc>A --><esc>
- noremap <localleader>z ^5x$xxxx
- map q -cc
- map w -ci
- nnoremap M $
- nnoremap H ^
- " nnoremap s ;
- nnoremap ; yy
- " nnoremap <c-w> <c-w>w
- nnoremap e <c-b>
- nnoremap m <c-f>
- nnoremap ' ``
- nnoremap z ~<left>
- nnoremap <silent> <localleader>; "+yy
- nnoremap <cr> G
- nnoremap K o<esc>
- nnoremap L yyp
- noremap < <<<esc>
- noremap > >><esc>
- noremap P o<esc>p
- nnoremap <localleader>p "+p
- nnoremap <localleader>P o<esc>"+p
- nnoremap U <c-r>
- nnoremap <localleader><space> i<space><esc>
- nnoremap { f{%
- nnoremap [ f[%
- nnoremap ( f(%
- nnoremap vv <c-v>
- nnoremap <localleader>t :terminal<cr>
- " nmap <localleader>c -cs
- nnoremap <c-.> gt
- nnoremap <c-,> gT
- " nnoremap <c-/> :bd<cr>
- " nnoremap <localleader>va :Tlist<cr>
- " nnoremap <localleader>s :nmapc<cr>:imapc<cr>:vmapc<cr>:omapc<cr>:w<cr>:so ~/.vimrc<cr>
- " nnoremap <localleader>so :w<cr>:so ~/.vimrc<cr>
- " nnoremap <localleader>ca :w<cr>:!casperjs %<cr>
- nnoremap <localleader>n :w<cr>:!node %<cr>
- nnoremap <localleader>b :w<cr>:!babel-node %<cr>
- " nnoremap <localleader>ls :ls<cr>
- " nnoremap <localleader>e : e!<cr>
- nnoremap <localleader>w :w<cr>
- nnoremap <localleader>c :%s/\s\+$//g<cr>
- nnoremap <localleader>q :q!<cr>
- nnoremap <localleader>a :wq<cr>
- " nnoremap <silent><C-j> :m .+1<CR>==
- " nnoremap <silent><C-k> :m .-2<CR>==
- noremap j gj
- noremap k gk
- nnoremap cw ciw
- nnoremap dw diw
- nnoremap vw viw
- nnoremap yw yiw
- " nnoremap caw caw
- " nnoremap daw daw
- " nnoremap vaw vaw
- " nnoremap yaw yaw
- nnoremap c) ci)
- nnoremap d) di)
- nnoremap v) vi)
- nnoremap y) yi)
- " nnoremap ca) ca)
- " nnoremap da) da)
- " nnoremap va) va)
- " nnoremap ya) ya)
- nnoremap c' ci'
- nnoremap d' di'
- nnoremap v' vi'
- nnoremap y' yi'
- nnoremap ca' ca'
- nnoremap da' da'
- nnoremap va' va'
- nnoremap ya' ya'
- " nnoremap ca{ ca{
- " nnoremap da{ da{
- " nnoremap va{ va{
- " nnoremap ya{ ya{
- nnoremap c{ c{
- nnoremap d{ d{
- nnoremap v{ vi{
- nnoremap y{ y{
- nnoremap c" ci"
- nnoremap d" di"
- nnoremap v" vi"
- nnoremap y" yi"
- " nnoremap ca" ca"
- " nnoremap da" da"
- " nnoremap va" va"
- " nnoremap ya" ya"
- nnoremap c[ ci[
- nnoremap d[ di[
- nnoremap v[ vi[
- nnoremap y[ yi[
- " nnoremap ca[ ca[
- " nnoremap da[ da[
- " nnoremap va[ va[
- " nnoremap ya[ ya[
- nnoremap c` ci`
- nnoremap d` di`
- nnoremap v` vi`
- nnoremap y` yi`
- nnoremap ct cit
- nnoremap dt dit
- nnoremap vt vit
- nnoremap yt yit
- " nnoremap ca` ca`
- " nnoremap va` va`
- " nnoremap da` da`
- " nnoremap ya` ya`
- nmap t' vwS'
- nmap t" vwS"
- nmap t[ vwS[
- nmap t{ vwS{
- nmap t) vwS)
- nmap t` vwS`
- nmap t> vwS>
- nmap d) ds)
- nmap d" ds"
- nmap d' ds'
- nmap d` ds`
- nmap d[ ds[
- nmap d{ ds{
- nmap d> ds>
+nnoremap vas F vf 
+nnoremap vs F <right>vf <left>
+nmap cf +w
+nmap vf <Plug>(expand_region_expand)oH
+nnoremap val ggVG
+nmap vl ^v$<left>
+" noremap <localleader>x ^i<!-- <esc>A --><esc>
+" noremap <localleader>z ^5x$xxxx
+map q -cc
+map w -ci
+nnoremap M $
+nnoremap H ^
+" nnoremap s ;
+nnoremap ; yy
+" nnoremap <c-w> <c-w>w
+nnoremap e <c-b>
+nnoremap m <c-f>
+nnoremap ' ``
+nnoremap z ~<left>
+nnoremap <silent> <localleader>; "+yy
+nnoremap <cr> G
+nnoremap K o<esc>
+nnoremap L yyp
+noremap < <<<esc>
+noremap > >><esc>
+noremap P o<esc>p
+nnoremap <localleader>p "+p
+nnoremap <localleader>P o<esc>"+p
+nnoremap U <c-r>
+nnoremap <localleader><space> i<space><esc>
+nnoremap { f{%
+nnoremap [ f[%
+nnoremap ( f(%
+nnoremap vv <c-v>
+nnoremap <localleader>t :terminal<cr>
+" nmap <localleader>c -cs
+nnoremap <c-.> gt
+nnoremap <c-,> gT
+" nnoremap <c-/> :bd<cr>
+" nnoremap <localleader>va :Tlist<cr>
+" nnoremap <localleader>s :nmapc<cr>:imapc<cr>:vmapc<cr>:omapc<cr>:w<cr>:so ~/.vimrc<cr>
+" nnoremap <localleader>so :w<cr>:so ~/.vimrc<cr>
+" nnoremap <localleader>ca :w<cr>:!casperjs %<cr>
+nnoremap <localleader>n :w<cr>:!node %<cr>
+nnoremap <localleader>b :w<cr>:!babel-node %<cr>
+" nnoremap <localleader>ls :ls<cr>
+" nnoremap <localleader>e : e!<cr>
+nnoremap <localleader>w :w<cr>
+nnoremap <localleader>c :%s/\s\+$//g<cr>
+nnoremap <localleader>q :q!<cr>
+nnoremap <localleader>a :wq<cr>
+" nnoremap <silent><C-j> :m .+1<CR>==
+" nnoremap <silent><C-k> :m .-2<CR>==
+noremap j gj
+noremap k gk
+nnoremap cw ciw
+nnoremap dw diw
+nnoremap vw viw
+nnoremap yw yiw
+" nnoremap caw caw
+" nnoremap daw daw
+" nnoremap vaw vaw
+" nnoremap yaw yaw
+nnoremap c) ci)
+nnoremap d) di)
+nnoremap v) vi)
+nnoremap y) yi)
+" nnoremap ca) ca)
+" nnoremap da) da)
+" nnoremap va) va)
+" nnoremap ya) ya)
+nnoremap c' ci'
+nnoremap d' di'
+nnoremap v' vi'
+nnoremap y' yi'
+nnoremap ca' ca'
+nnoremap da' da'
+nnoremap va' va'
+nnoremap ya' ya'
+" nnoremap ca{ ca{
+" nnoremap da{ da{
+" nnoremap va{ va{
+" nnoremap ya{ ya{
+nnoremap c{ c{
+nnoremap d{ d{
+nnoremap v{ vi{
+nnoremap y{ y{
+nnoremap c" ci"
+nnoremap d" di"
+nnoremap v" vi"
+nnoremap y" yi"
+" nnoremap ca" ca"
+" nnoremap da" da"
+" nnoremap va" va"
+" nnoremap ya" ya"
+nnoremap c[ ci[
+nnoremap d[ di[
+nnoremap v[ vi[
+nnoremap y[ yi[
+" nnoremap ca[ ca[
+" nnoremap da[ da[
+" nnoremap va[ va[
+" nnoremap ya[ ya[
+nnoremap c` ci`
+nnoremap d` di`
+nnoremap v` vi`
+nnoremap y` yi`
+nnoremap ct cit
+nnoremap dt dit
+nnoremap vt vit
+nnoremap yt yit
+" nnoremap ca` ca`
+" nnoremap va` va`
+" nnoremap da` da`
+" nnoremap ya` ya`
+nmap t' vwS'
+nmap t" vwS"
+nmap t[ vwS[
+nmap t{ vwS{
+nmap t) vwS)
+nmap t` vwS`
+nmap t> vwS>
+nmap d) ds)
+nmap d" ds"
+nmap d' ds'
+nmap d` ds`
+nmap d[ ds[
+nmap d{ ds{
+nmap d> ds>
 
 
- " 插入模式=====================================
- " inoremap <tab> <c-n>
- " inoremap <c-space> <c-n>
- inoremap <c-w> <c-w>
- inoremap <c-u> <c-u>
- " inoremap <c-l> <c-o>d$
- " inoremap <c-k> <c-o>de
- inoremap <c-o> <c-o>o
- inoremap <c-l> <c-o>O
- inoremap <c-s> <c-o>S
- " inoremap <c-j> o<esc>ddO
- inoremap jj <Esc>
+" 插入模式=====================================
+" inoremap <tab> <c-n>
+" inoremap <c-space> <c-n>
+inoremap <c-w> <c-w>
+inoremap <c-u> <c-u>
+" inoremap <c-l> <c-o>d$
+" inoremap <c-k> <c-o>de
+inoremap <c-o> <c-o>o
+inoremap <c-l> <c-o>O
+inoremap <c-s> <c-o>S
+" inoremap <c-j> o<esc>ddO
+inoremap jj <Esc>
 
- " 视觉模式=====================================
- " vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
- " vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
- vnoremap <localleader>; "+y
- vnoremap ; y
- vnoremap { f{%
- vnoremap [ f[%
- vnoremap ( f(%
- vnoremap u <esc>
- vnoremap M $
- vnoremap H ^
- vnoremap L ykp
- vmap ' S'
- vmap " S"
- vmap ` S`
- vmap ) S)
- vmap [ S[
- vmap { S}
- vmap + f{<Plug>(expand_region_expand)oH
- vmap _ f{<Plug>(expand_region_shrink)oH
+" 视觉模式=====================================
+" vnoremap <silent> <C-j> :m '>+1<CR>gv=gv
+" vnoremap <silent> <C-k> :m '<-2<CR>gv=gv
+vnoremap <localleader>; "+y
+vnoremap ; y
+vnoremap { f{%
+vnoremap [ f[%
+vnoremap ( f(%
+vnoremap u <esc>
+vnoremap M $
+vnoremap H ^
+vnoremap L ykp
+vmap ' S'
+vmap " S"
+vmap ` S`
+vmap ) S)
+vmap [ S[
+vmap { S}
+vmap + f{<Plug>(expand_region_expand)oH
+vmap _ f{<Plug>(expand_region_shrink)oH
 
- " 操作等待模式=====================================
- onoremap M $
- onoremap H ^
+" 操作等待模式=====================================
+onoremap M $
+onoremap H ^
