@@ -4,6 +4,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gregsexton/matchtag'
+" Plugin 'justinmk/vim-sneak'
 Plugin 'ap/vim-css-color'
 Plugin 'wellle/targets.vim'
 " Plugin 'scrooloose/syntastic'
@@ -156,12 +157,12 @@ let g:expand_region_text_objects = { 'a}': 1 }
 " easymotion
 let g:EasyMotion_smartcase = 1
 " map f <Plug>(easymotion-prefix)
-" map ff <Plug>(easymotion-s)
-map fs <Plug>(easymotion-f)
-map ffl <Plug>(easymotion-lineforward)
-" map fj <Plug>(easymotion-j)
-" map fk <Plug>(easymotion-k)
-map ffh <Plug>(easymotion-linebackward)
+" map fs <Plug>(easymotion-s)
+" map ff <Plug>(easymotion-f)
+map fl <Plug>(easymotion-lineforward)
+map fj <Plug>(easymotion-j)
+map fk <Plug>(easymotion-k)
+map fh <Plug>(easymotion-linebackward)
 
 " youcompleteme
 " 修改默认选择补全快捷键
@@ -172,7 +173,12 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 " 指定python路径
 let g:python2_host_prog = '/usr/local/bin/python'
 " 指定自定义代码片段文件夹路径
-let g:UltiSnipsSnippetsDir = '/Users/zhouxiang/doc/private/UltiSnips'
+set rtp+=~/.vim/UltiSnips
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsSnippetDirectories=[
+      \ 'javascript_base',
+      \ 'javascript_module',
+      \]
 let g:UltiSnipsEnableSnipMate = 0
 " let g:UltiSnipsExpandTrigger = "<c-=>"
 " let g:UltiSnipsJumpForwardTrigger = "<c-j>"
@@ -251,7 +257,8 @@ endfunction
 
 "记住最后一次编辑的位置
 autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" |  endif
-autocmd BufReadPost *.snippets  nnoremap new isnippet  ""<cr>endsnippet<esc>O
+autocmd BufReadPost *.snippets  nnoremap  isnippet more ""<cr>endsnippet<esc>O
+autocmd BufReadPost *.snippets  set ft=sh
 
 
 " vim设置=========================================================
@@ -335,10 +342,52 @@ endif
 " 普通模式=====================================
 nnoremap vas F vf 
 nnoremap vs F <right>vf <left>
-nmap cf +w
-nmap vf <Plug>(expand_region_expand)oH
+
+nnoremap v(, vF(<right>of,<left>
+nnoremap d(, vF(<right>of,<left>d
+nnoremap c(, vF(<right>of,<left>c
+
+nmap vf <Plug>(expand_region_expand)$o^
+nmap cf +-cc
+nmap gf +-ci
+nmap dfu +d
+
+
+nnoremap v<space>, vF <right>of,<left>
+nnoremap d<space>, vF <right>of,<left>d
+nnoremap c<space>, vF <right>of,<left>c
+
+nnoremap v<space>; vF <right>of;<left>
+nnoremap d<space>; vF <right>of;<left>d
+nnoremap c<space>; vF <right>of;<left>c
+
+nnoremap v<space>( vF <right>of(<left>
+nnoremap d<space>( vF <right>of(<left>d
+nnoremap c<space>( vF <right>of(<left>c
+
+nnoremap v<space>) vF <right>of)<left>
+nnoremap d<space>) vF <right>of)<left>d
+nnoremap c<space>) vF <right>of)<left>c
+
+nnoremap v<space><space> vF <right>of <left>
+nnoremap d<space><space> vF <right>of <left>d
+nnoremap c<space><space> vF <right>of <left>c
+
+nnoremap v., vF.<right>of)
+nnoremap d., vF.of)d
+nnoremap c., vF.<right>of)c
+
+nnoremap vd vi)$o^
+nmap cd v)$o^-cc
+nmap gd v)-ci
+
+nmap cct vat-cc
+nmap gt vat-ci
+
 nnoremap val ggVG
-nmap vl ^v$<left>
+
+nnoremap vli ^v$<left>
+
 " noremap <localleader>x ^i<!-- <esc>A --><esc>
 " noremap <localleader>z ^5x$xxxx
 map q -cc
@@ -391,63 +440,28 @@ noremap k gk
 nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viw
-nnoremap yw yiw
-" nnoremap caw caw
-" nnoremap daw daw
-" nnoremap vaw vaw
-" nnoremap yaw yaw
 nnoremap c) ci)
 nnoremap d) di)
 nnoremap v) vi)
-nnoremap y) yi)
-" nnoremap ca) ca)
-" nnoremap da) da)
-" nnoremap va) va)
-" nnoremap ya) ya)
 nnoremap c' ci'
 nnoremap d' di'
 nnoremap v' vi'
-nnoremap y' yi'
-nnoremap ca' ca'
-nnoremap da' da'
-nnoremap va' va'
-nnoremap ya' ya'
-" nnoremap ca{ ca{
-" nnoremap da{ da{
-" nnoremap va{ va{
-" nnoremap ya{ ya{
-nnoremap c{ c{
-nnoremap d{ d{
+nnoremap c{ ci{
+nnoremap d{ di{
 nnoremap v{ vi{
-nnoremap y{ y{
 nnoremap c" ci"
 nnoremap d" di"
 nnoremap v" vi"
-nnoremap y" yi"
-" nnoremap ca" ca"
-" nnoremap da" da"
-" nnoremap va" va"
-" nnoremap ya" ya"
-nnoremap c[ ci[
 nnoremap d[ di[
 nnoremap v[ vi[
-nnoremap y[ yi[
-" nnoremap ca[ ca[
-" nnoremap da[ da[
-" nnoremap va[ va[
-" nnoremap ya[ ya[
+nnoremap c[ ci[
 nnoremap c` ci`
 nnoremap d` di`
 nnoremap v` vi`
-nnoremap y` yi`
 nnoremap ct cit
 nnoremap dt dit
 nnoremap vt vit
-nnoremap yt yit
-" nnoremap ca` ca`
-" nnoremap va` va`
-" nnoremap da` da`
-" nnoremap ya` ya`
+nnoremap vat vat$o0
 nmap t' vwS'
 nmap t" vwS"
 nmap t[ vwS[
@@ -462,6 +476,7 @@ nmap d` ds`
 nmap d[ ds[
 nmap d{ ds{
 nmap d> ds>
+nmap dt dst
 
 
 " 插入模式=====================================
@@ -488,7 +503,7 @@ vnoremap ( f(%
 vnoremap u <esc>
 vnoremap M $
 vnoremap H ^
-vnoremap L ykp
+vnoremap L yO<esc>p
 vmap ' S'
 vmap " S"
 vmap ` S`
@@ -497,6 +512,7 @@ vmap [ S[
 vmap { S}
 vmap + f{<Plug>(expand_region_expand)oH
 vmap _ f{<Plug>(expand_region_shrink)oH
+vmap \ <Plug>(expand_region_expand)
 
 " 操作等待模式=====================================
 onoremap M $

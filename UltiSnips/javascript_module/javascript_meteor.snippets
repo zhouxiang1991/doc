@@ -1,0 +1,15 @@
+snippet mm "Meteor.methods"
+Meteor.methods({
+  ${1:${VISUAL}}
+});
+endsnippet
+
+snippet mc "Meteor.call" b
+Meteor.call('${1}').then((${2}) => {
+  ${3:${VISUAL}}
+});
+endsnippet
+
+snippet amc "await Meteor.call" b
+const ${0} = await Meteor.call('${1}');
+endsnippet

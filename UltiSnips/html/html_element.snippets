@@ -1,3 +1,4 @@
+# el-button
 snippet ebtn "el-button"
 <el-button 
   ${1}>
@@ -5,6 +6,7 @@ snippet ebtn "el-button"
 </el-button>
 endsnippet
 
+# el-input
 snippet einput "el-input"
 <el-input 
   ${1}>
@@ -12,13 +14,15 @@ snippet einput "el-input"
 </el-input>
 endsnippet
 
-snippet eswitch "el-input"
+# el-switch
+snippet eswi "el-switch"
 <el-switch ${1}>
   ${2:${VISUAL}}
 </el-switch>
 endsnippet
 
-snippet eform "el-input"
+# el-form
+snippet eform "el-form"
 <el-form 
   ${1}>
   <el-form-item 
@@ -28,6 +32,7 @@ snippet eform "el-input"
 </el-form>
 endsnippet
 
+# el-confirm
 snippet econfirm "el-comfirm"
 this.$confirm('${1}', '${2}', {
   confirmButtonText: '确定',
@@ -46,6 +51,7 @@ this.$confirm('${1}', '${2}', {
 });
 endsnippet
 
+# el-dialog
 snippet edia "el-dialog"
 <el-dialog
   :visible.sync=""
@@ -59,6 +65,7 @@ snippet edia "el-dialog"
 </el-dialog>
 endsnippet
 
+# this.$message
 snippet emsg
 this.$message({
   type: '${1}',
@@ -67,7 +74,8 @@ this.$message({
 });
 endsnippet
 
-snippet enot
+# this.$notify
+snippet enotify
 this.$notify({
   type: '${1}',
   title: '${2}',

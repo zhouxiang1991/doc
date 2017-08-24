@@ -1,0 +1,30 @@
+snippet ; "();" i
+(${1});
+endsnippet
+
+# console.log()
+snippet cl "console.log"
+console.log(${1:${VISUAL}});
+endsnippet
+
+# console.log(); process.ext()
+snippet cp "console.log(); process.ext()"
+console.log(${1:${VISUAL}}); process.exit();
+endsnippet
+
+# process.exit()
+snippet pe "process.exit()" w
+process.exit();
+endsnippet
+
+snippet me ""
+const ${1} = () => {
+  ${2}
+};
+export default $1;
+endsnippet
+
+# `${}`
+snippet str "`${}`" w
+\`\$\{${1:${VISUAL}}}\`
+endsnippet

@@ -1,0 +1,23 @@
+# try...catch
+snippet try "try...catch"
+try {
+  ${1:${VISUAL}}
+} catch (e) {
+  ${2}
+}
+endsnippet
+
+# throw new Error('')
+snippet err "throw new Error('')" w
+throw new Error('${1}');
+endsnippet
+
+# throw new TypeError('')
+snippet ety "throw new TypeError('')" w
+throw new TypeError('${1}');
+endsnippet
+
+# throw new TypeError('')
+snippet ere "throw new TypeError('')" w
+throw new RangeError('${1}');
+endsnippet

@@ -1,0 +1,70 @@
+# let = {}
+snippet lo "let = {}"
+let ${1} = {
+  ${2:${VISUAL}}
+};
+endsnippet
+
+# let = () => {}
+snippet lf "let = () => {}"
+let ${1} = (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+# let async () => {} 
+snippet laf "let async () => {}"
+let ${1} = async (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+# const = {}
+snippet co "const = {}"
+const ${1} = {
+  ${2:${VISUAL}}
+};
+endsnippet
+
+# const () => {}
+snippet cf "const () => {}"
+const ${1} = (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+# const async () => {}
+snippet caf "const async () => {}"
+const ${1} = async (${2}) => {
+  ${3:${VISUAL}}
+};
+endsnippet
+
+# (() => {})()
+snippet iif "(() => {})()"
+((${1}) => {
+  ${2:${VISUAL}}
+})();
+endsnippet
+
+# () => {
+# }
+snippet aw "() => {}" i
+(${1}) => {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+# () => {}
+snippet an "() => {}" i
+${1} => ${2}
+endsnippet
+
+# function () {
+# }
+snippet fun "function () {}" w
+function (${1}) {
+  ${2}
+}
+endsnippet
+

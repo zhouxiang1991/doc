@@ -1,0 +1,61 @@
+# Object.hasOwnProperty
+snippet has "Object.hasOwnProperty"
+if (Object.hasOwnProperty.call(${1}, ${2})) {
+  ${3:${VISUAL}}
+}
+endsnippet
+
+# Object.keys
+snippet key "Object.keys" w
+Object.keys(${1:${VISUAL}})
+endsnippet
+
+# JSON.parse
+snippet jp "JSON.parse" w
+JSON.parse(${1:${VISUAL}})
+endsnippet
+
+# JSON.stringify
+snippet js "JSON.stringify" w
+JSON.stringify(${1:${VISUAL}})
+endsnippet
+
+# Object.defineProperty 
+snippet odp "Object.defineProperty"
+Object.defineProperty(${1}, '${2}', {
+  get: function () {
+    ${3}
+  },
+});
+endsnippet
+
+# Object.prototype.toString.call 
+snippet type "Object.prototype.toString.call"
+console.log(Object.prototype.toString.call(${1}));
+endsnippet
+
+# Object.getOwnPropertyNames
+snippet okey "Object.getOwnPropertyNames"
+console.log(Object.getOwnPropertyNames(${1}));
+endsnippet
+
+# () {}
+snippet :f "() {}"
+${1}(${2}) {
+  ${3:${VISUAL}}
+},
+endsnippet
+
+# async () {}
+snippet :af "async () {}"
+async ${1}(${2}) {
+  ${3:${VISUAL}}
+},
+endsnippet
+
+# : {  } 
+snippet :o ": {  }"
+${1}: {
+  ${2:${VISUAL}}
+},
+endsnippet

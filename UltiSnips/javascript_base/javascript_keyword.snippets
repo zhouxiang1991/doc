@@ -1,0 +1,73 @@
+# else
+snippet el "else" i
+ else {
+  ${1:${VISUAL}}
+}
+endsnippet
+
+# else if
+snippet ei "else if" i
+ else if (${1}) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+# if
+snippet if "if"
+if (${1}) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+# for
+snippet for "for"
+for (let i = 0; i < ${1}.length; i += 1) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+# for of
+snippet fof "for of"
+for (const ${1:x} of ${2}) {
+  ${3:${VISUAL}}
+}
+endsnippet
+
+
+# for in
+snippet fin "for in"
+for (const ${1} in ${2}) {
+  ${3:${VISUAL}}
+}
+endsnippet
+
+# switch
+snippet swi
+switch (${1:value}) {
+  case '${2:one}': {
+    break;
+  }
+  default: break;
+}
+endsnippet
+
+# case
+snippet case
+case '${1}': {
+  ${2:${VISUAL}}
+  break;
+}
+endsnippet
+
+# while
+snippet whi
+while (${1:value}) {
+  ${2:${VISUAL}}
+}
+endsnippet
+
+# continue
+snippet con
+continue;
+endsnippet
+
