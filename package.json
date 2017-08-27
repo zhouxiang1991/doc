@@ -29,6 +29,9 @@
     "mongoose": "^4.9.5"
   },
   "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
     "chai": "^4.0.2",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2",

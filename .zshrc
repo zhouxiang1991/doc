@@ -108,11 +108,11 @@ alias so='source ~/.zshrc'
 alias sr='source ~/.vimrc'
 alias zz='v ~/.zshrc'
 alias zr='v ~/.vimrc'
-alias rm='~/doc/private/script/rm.sh'
+alias r='~/doc/private/script/rm.sh'
 alias qk='quick-look'
 alias k='cd .. && ll'
 alias l='ls -lh'
-alias rr='rm'
+alias rm='rm -rf'
 
 alias bp='~/doc/private/script/backup.sh'
 
@@ -183,17 +183,17 @@ alias drp='docker rm'
 # meteor
 alias mn='meteor npm'
 
-#export TERM=xterm-256color
+export TERM=xterm-256color
 alias m='/Applications/MacVim.app/Contents/bin/mvim'
 # alias vim='/Applications/MacVim.app/Contents/MacOs/vim'
-#bindkey -v
-#VIMODE='-- INSERT --'
-#function zle-line-init zle-keymap-select {
-#    VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
-#    zle reset-prompt
-#}
-#zle -N zle-line-init
-#zle -N zle-keymap-select
+# bindkey -v
+# VIMODE='-- INSERT --'
+# function zle-line-init zle-keymap-select {
+   # VIMODE="${${KEYMAP/vicmd/-- NORMAL --}/(main|viins)/-- INSERT --}"
+   # zle reset-prompt
+# }
+# zle -N zle-line-init
+# zle -N zle-keymap-select
 
-#RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
-#bindkey 'jj' vi-cmd-mode
+# RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
+# bindkey 'jj' vi-cmd-mode
