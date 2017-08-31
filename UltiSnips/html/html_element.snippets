@@ -1,7 +1,8 @@
 # el-button
 snippet ebtn "el-button"
 <el-button 
-  ${1}>
+  type="text"
+  @click=${1}>
   ${2:${VISUAL}}
 </el-button>
 endsnippet
@@ -16,7 +17,8 @@ endsnippet
 
 # el-switch
 snippet eswi "el-switch"
-<el-switch ${1}>
+<el-switch 
+  ${1}>
   ${2:${VISUAL}}
 </el-switch>
 endsnippet
@@ -84,7 +86,14 @@ this.$notify({
 });
 endsnippet
 
-
-
+# el-progress
+snippet epro
+<el-progress
+  type="line"
+  :percentage=${1}
+  :status=${2}>
+  ${3}
+</el-progress>
+endsnippet
 
 

@@ -17,15 +17,16 @@ Plugin 'gregsexton/matchtag'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " Plugin 'justinmk/vim-sneak'
 Plugin 'ap/vim-css-color'
+Plugin 'tpope/vim-repeat'
 " Plugin 'wellle/targets.vim'
 " Plugin 'scrooloose/syntastic'
 Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'junegunn/limelight.vim'
-Plugin 'mhinz/vim-signify'
+" Plugin 'mhinz/vim-signify'
 Plugin 'matze/vim-move'
 " Plugin 'tpope/vim-commentary'
 " Plugin 'terryma/vim-expand-region'
-" Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 " Plugin 'haya14busa/incsearch.vim'
 " Plugin 'justinmk/vim-sneak'
 " Plugin 'junegunn/goyo.vim'
@@ -63,10 +64,22 @@ synta on
 call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-multiple-cursors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nnoremap <silent> <c-y> :MultipleCursorsFind <C-R>/<CR>
+" vnoremap <silent> <c-j> :MultipleCursorsFind <C-R>/<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " auto-pairs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:AutoPairsMapCh = 0
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-sneak
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map f <Plug>Sneak_s
+" map F <Plug>Sneak_S
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-jsdoc
@@ -74,6 +87,9 @@ let g:AutoPairsFlyMode = 1
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_param_description_separator = ' - '
+nnoremap <c-d> :JsDoc<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,8 +125,8 @@ let g:ale_fix_on_save = 0
 let g:ale_lint_on_text_changed = 'never'
 nnoremap <c-b> :ALEDisable<cr>
 " let g:ale_lint_on_insert_leave = 1
-nmap <silent> <C-l> <Plug>(ale_previous_wrap)
-" nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-h> <Plug>(ale_previous_wrap)
+nmap <silent> <C-l> <Plug>(ale_next_wrap)
 "
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -311,7 +327,7 @@ nnoremap <c-s> :CtrlSF
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <c-z>  :FZF<cr>
+nnoremap <c-p>  :FZF<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -365,7 +381,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDTreeWinPos=1
 let g:NERDTreeChDirMode=2
 map <F4> <plug>NERDTreeTabsToggle<CR>
-let g:nerdtree_tabs_open_on_console_startup=1
+" let g:nerdtree_tabs_open_on_console_startup=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -467,7 +483,7 @@ set scrolloff=10
 set nu
 
 " 设置相对行号
-set rnu
+" set rnu
 
 " 设置tab键等于几个空格
 set tabstop=2
@@ -501,66 +517,85 @@ let maplocalleader=' '
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " (,
 nnoremap v(, vF(<right>of,<left>
-nnoremap d(, vF(<right>of,<left>d
-nnoremap c(, vF(<right>of,<left>c
+" nnoremap d(, vF(<right>of,<left>d
+" nnoremap c(, vF(<right>of,<left>c
+
+" \'
+nnoremap v/' vF/<right>of'<left>
+" nnoremap d/' vF/<right>of'<left>d
+" nnoremap c/' vF/<right>of'<left>c
 
 "  ,
 nnoremap v<space>, vF <right>of,<left>
-nnoremap d<space>, vF <right>of,<left>d
-nnoremap c<space>, vF <right>of,<left>c
+" nnoremap d<space>, vF <right>of,<left>d
+" nnoremap c<space>, vF <right>of,<left>c
 
 "  ;
 nnoremap v<space>; vF <right>of;<left>
-nnoremap d<space>; vF <right>of;<left>d
-nnoremap c<space>; vF <right>of;<left>c
+" nnoremap d<space>; vF <right>of;<left>d
+" nnoremap c<space>; vF <right>of;<left>c
 
 "  (
 nnoremap v<space>( vF <right>of(<left>
-nnoremap d<space>( vF <right>of(<left>d
-nnoremap c<space>( vF <right>of(<left>c
+" nnoremap d<space>( vF <right>of(<left>d
+" nnoremap c<space>( vF <right>of(<left>c
+
+" ( 
+nnoremap v(<space> vF(<right>of <left>
+" nnoremap d(<space> vF(<right>of <left>d
+" nnoremap c(<space> vF(<right>of <left>c
 
 "  )
 nnoremap v<space>) vF <right>of)<left>
-nnoremap d<space>) vF <right>of)<left>d
-nnoremap c<space>) vF <right>of)<left>c
+" nnoremap d<space>) vF <right>of)<left>d
+" nnoremap c<space>) vF <right>of)<left>c
+
+" , )
+nnoremap v,) vF,of)<left>
+" nnoremap d,) vF,of)<left>d
+" nnoremap c,) vF,of)<left>c
+
+"  .
+nnoremap v<space>. vF<space><right>of.<left>
+" nnoremap d<space>. vF<space><right>of.<left>d
+" nnoremap c<space>. vF<space><right>of.<left>c
 
 " .)
 nnoremap v.) vF.<right>of)
-nnoremap d.) vF.<right>of)d
-nnoremap c.) vF.<right>of)c
+" nnoremap d.) vF.<right>of)d
+" nnoremap c.) vF.<right>of)c
 nnoremap va.) vF.of)
-nnoremap da.) vF.of)d
-nnoremap ca.) vF.of)c
+" nnoremap da.) vF.of)d
+" nnoremap ca.) vF.of)c
 
 " <space><space>
 nnoremap v<space><space> vF <right>of <left>
-nnoremap d<space><space> vF <right>of <left>d
-nnoremap c<space><space> vF <right>of <left>c
+" nnoremap d<space><space> vF <right>of <left>d
+" nnoremap c<space><space> vF <right>of <left>c
 
 " .,
 nnoremap v., vF.<right>of)
-nnoremap d., vF.<right>of)
-nnoremap c., vF.<right>of)c
+" nnoremap d., vF.<right>of)
+" nnoremap c., vF.<right>of)c
 
 " 函数调用文本对象
-" nmap vf <Plug>(expand_region_expand)o0
-nmap vf va{o0
-nmap <localleader>zf vf-cc
-nmap <localleader>rf vf-ci
-nmap <localleader>df vfd
-nmap <localleader>cf vfc
+" nmap vh <Plug>(expand_region_expand)o0
+nmap vh va{$o0o
+" nmap <localleader>zh vh-cc
+" nmap <localleader>rh vh-ci
+" nmap <localleader>dh vhd
+" nmap <localleader>ch vhc
 
 " 函数定义文本对象
-nnoremap vd vi)o0
-nmap <localleader>zd vd-cc
-nmap <localleader>rd vd-ci
-nmap <localleader>dd vdd
-nmap <localleader>cd vdc
+nnoremap vd vi)$o0o
+" nmap <localleader>zd vd-cc
+" nmap <localleader>rd vd-ci
+" nmap <localleader>dd vdd
+" nmap <localleader>cd vdc
 
 " 全部
-nnoremap val ggVG
-nnoremap vli ^v$<left>
-
+nnoremap vu ggVG
+nnoremap vo ^v$<left>
 map q -cc
 map w -ci
 nnoremap M $
@@ -631,18 +666,18 @@ nnoremap c[ ci[
 nnoremap c` ci`
 nnoremap d` di`
 nnoremap v` vi`
-nnoremap ct vat$o0c
-nnoremap dt vat$o0ddd
-nnoremap vt vat$o0
-nmap zt vat-cc
-nmap rt vat-ci
-nmap t' vwS'
-nmap t" vwS"
-nmap t[ vwS[
-nmap t{ vwS{
-nmap t) vwS)
-nmap t` vwS`
-nmap t> vwS>
+nnoremap vt vat$o0o
+" nmap ct vtc
+" nmap dt vtd
+" nmap zt vat-cc
+" nmap rt vat-ci
+" nmap t' vwS'
+" nmap t" vwS"
+" nmap t[ vwS[
+" nmap t{ vwS{
+" nmap t) vwS)
+" nmap t` vwS`
+" nmap t> vwS>
 nmap d) ds)
 nmap d" ds"
 nmap d' ds'
@@ -677,25 +712,28 @@ onoremap H ^
 
 if has("gui_vimr")
   set background=dark
-  " colorscheme onedark
+  " colorscheme tender
+  colorscheme onedark
+  " colorscheme gruvbox
   " colorscheme molokai
-  colorscheme solarized
+  " colorscheme solarized
+  " colorscheme hybrid
 elseif has("gui_running")
   " set background=dark
   " colorscheme molokai
-  set guifont=AurulentSansMono\ Nerd\ Font:h18
+  set guifont=DejaVuSansMono\ Nerd\ Font:h18
   colorscheme onedark
 else
   " set background=dark
   " colorscheme molokai
-  " colorscheme onedark
+  colorscheme onedark
   " colorscheme gruvbox
   " colorscheme hybrid
   " colorscheme tender
   " colorscheme solarized
 endif
-nnoremap <localleader>. gt
-nnoremap <localleader>, gT
+nnoremap <localleader>. :bp<cr>
+nnoremap <localleader>, :bn<cr>
 nnoremap <c-.> gt
 nnoremap <c-,> gT
 nnoremap s ;

@@ -143,6 +143,7 @@ alias nd='npm run deploy'
 alias nb='npm run build'
 alias nt='npm run test'
 alias np='npm run prod'
+alias nj='npm run jsdoc'
 
 
 
