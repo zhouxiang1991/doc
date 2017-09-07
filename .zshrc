@@ -52,11 +52,7 @@ ZSH_THEME="xxf"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  autojump
-  osx
-  web-search
   wd
-  # last-working-dir
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -89,37 +85,24 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # bash
-alias ls='ls -G'
 alias v='nvim'
 alias vim='/usr/local/Cellar/vim/8.0.0983/bin/vim'
-alias ll='ls -lh'
 alias grep='grep --color'
 alias la='ll -a'
-alias c='cd'
-# alias n='node'
-alias mk='mkdir '
-alias cp='cp -rf '
 alias b='babel-node'
 alias of='open -a Finder ./'
-alias th='touch'
 alias so='source ~/.zshrc'
 alias sr='source ~/.vimrc'
 alias zz='v ~/.zshrc'
 alias zr='v ~/.vimrc'
 alias r='~/doc/private/script/rm.sh'
-alias qk='quick-look'
 alias k='cd .. && ll'
 alias l='ls -lh'
-alias rm='rm -rf'
 
 alias bp='~/doc/private/script/backup.sh'
-
-alias -s js='nvim'
-alias cl='clear'
 alias mo='./script/mocha.sh'
-alias th='touch'
 alias init='~/doc/private/script/init.sh'
 
 
@@ -138,54 +121,55 @@ export PGDATA=/usr/local/var/postgres
 # npm
 export NODE_PATH=/usr/local/lib/node_modules
 # alias n='npm'
-alias ns='npm start'
-alias nd='npm run deploy'
-alias nb='npm run build'
-alias nt='npm run test'
-alias np='npm run prod'
-alias nj='npm run jsdoc'
+# alias ns='npm start'
+# alias nd='npm run deploy'
+# alias nb='npm run build'
+# alias nt='npm run test'
+# alias np='npm run prod'
+# alias nj='npm run jsdoc'
 
 
 
 # git
-alias ad='git add .'
-alias ct='git commit -m'
-alias ph='git push --all'
+# alias ad='git add .'
+# alias ct='git commit -m'
+# alias ph='git push --all'
 # alias ce='git clone'
 # alias ck='git checkout'
-alias st='git flow feature start'
-alias fh='~/doc/private/script/git_flow_finish_feature.sh'
+# alias st='git flow feature start'
+# alias fh='~/doc/private/script/git_flow_finish_feature.sh'
 alias au='~/doc/private/script/auto.sh'
 # alias re='git branch -d'
-alias ss='git status'
-alias rt='~/doc/private/script/git_reset.sh'
+alias gss='git status'
+alias gdf='git diff'
+# alias rt='~/doc/private/script/git_reset.sh'
 
 
-# pm2
-alias pda='pm2 delete all'
-alias psa='pm2 stop all'
-alias pt='pm2 list'
-alias pl='pm2 logs'
-alias pst='pm2 start'
-alias prt='pm2 restart'
-alias pk='pm2 kill'
-alias pf='pm2 flush'
-alias pm='pm2 monit'
+# # pm2
+# alias pda='pm2 delete all'
+# alias psa='pm2 stop all'
+# alias pt='pm2 list'
+# alias pl='pm2 logs'
+# alias pst='pm2 start'
+# alias prt='pm2 restart'
+# alias pk='pm2 kill'
+# alias pf='pm2 flush'
+# alias pm='pm2 monit'
 
 
-# docker
-alias di='docker images'
-alias db='docker build'
-alias dri='docker rmi '
-alias dp='docker ps -a'
-alias dra='docker rm $(docker ps -aq)'
-alias drp='docker rm'
+# # docker
+# alias di='docker images'
+# alias db='docker build'
+# alias dri='docker rmi '
+# alias dp='docker ps -a'
+# alias dra='docker rm $(docker ps -aq)'
+# alias drp='docker rm'
 
 # meteor
-alias mn='meteor npm'
+# alias mn='meteor npm'
 
 export TERM=xterm-256color
-alias m='/Applications/MacVim.app/Contents/bin/mvim'
+# alias m='/Applications/MacVim.app/Contents/bin/mvim'
 # alias vim='/Applications/MacVim.app/Contents/MacOs/vim'
 # bindkey -v
 # VIMODE='-- INSERT --'
@@ -198,3 +182,5 @@ alias m='/Applications/MacVim.app/Contents/bin/mvim'
 
 # RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
 # bindkey 'jj' vi-cmd-mode
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
