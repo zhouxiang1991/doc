@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'posva/vim-vue'
 au BufNewFile,BufRead *.vue setf vue
 au BufNewFile,BufRead *.vue syntax sync fromstart
@@ -12,9 +13,12 @@ au FileType vue syntax sync fromstart
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 " Plug 'easymotion/vim-easymotion'
-" nmap <leader> <Plug>(easymotion-prefix)
-" nmap <leader>a <Plug>(easymotion-linebackward)
+" nmap  <Plug>(easymotion-prefix)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -24,36 +28,37 @@ au FileType vue syntax sync fromstart
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'terryma/vim-expand-region'
 " let g:expand_region_text_objects = {
-" \ 'iw'  :1,
-" \ 'iW'  :1,
-" \ 'i"'  :1,
-" \ 'i''' :1,
-" \ 'i]'  :1,
-" \ 'ib'  :1,
-" \ 'iB'  :1,
-" \ 'il'  :1,
-" \ 'ip'  :1,
-" \ }
+      " \ 'iw'  :1,
+      " \ 'iW'  :0,
+      " \ 'i"'  :0,
+      " \ 'i''' :0,
+      " \ 'i]'  :1,
+      " \ 'ib'  :1,
+      " \ 'iB'  :1,
+      " \ 'il'  :0,
+      " \ 'ip'  :0,
+      " \ 'ie'  :0,
+      " \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-operator-surround'
-vmap ' <Plug>(operator-surround-append)'
-vmap " <Plug>(operator-surround-append)"
-vmap ) <Plug>(operator-surround-append))
-vmap { <Plug>(operator-surround-append){
-vmap [ <Plug>(operator-surround-append)[
-vmap ` <Plug>(operator-surround-append)`
-nmap <c-t> <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <c-r> <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+" Plug 'kana/vim-operator-user'
+" Plug 'rhysd/vim-operator-surround'
+" vmap ' <Plug>(operator-surround-append)'
+" vmap " <Plug>(operator-surround-append)"
+" vmap ) <Plug>(operator-surround-append))
+" vmap { <Plug>(operator-surround-append){
+" vmap [ <Plug>(operator-surround-append)[
+" vmap ` <Plug>(operator-surround-append)`
+" nmap <c-t> <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+" nmap <c-r> <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'Shougo/vimproc.vim'
 " Plug 'Shougo/neoyank.vim'
-" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/unite.vimet
 " Plug 'shougo/denite.nvim'
 " nnoremap <localleader>db :Denite buffer<cr>
 " call denite#custom#map(
@@ -85,9 +90,27 @@ nmap <c-r> <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 " Plug 'tpope/vim-unimpaired'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has("nvim")
+  Plug 'Shougo/deoplete.nvim'
+  let g:deoplete#enable_at_startup = 1
+else
+  Plug 'Shougo/neocomplete.vim'
+  let g:acp_enableAtStartup = 0
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_smart_case = 1
+  " let g:neocomplete#sources#syntax#min_keyword_length = 3
+  " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['vue', 'javascript'] }
 let g:javascript_plugin_jsdoc = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -104,24 +127,65 @@ let g:javascript_plugin_jsdoc = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'vim-scripts/UnconditionalPaste'
-nmap p g]p
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fholgado/minibufexpl.vim'
-let g:miniBufExplVSplit = 15
+" let g:miniBufExplVSplit = 15
 nnoremap <c-o> :MBEFocus<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" if has("gui_running")
+  " Plug 'maralla/completor.vim'
+" endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'unblevable/quick-scope'
+" let g:qs_highlight_on_keys = ['f', 'F']
+" let g:qs_first_occurrence_highlight_color = '#afff5f' " gui vim
+" let g:qs_first_occurrence_highlight_color = 155       " terminal vim
+
+" let g:qs_second_occurrence_highlight_color = '#5fffff'  " gui vim
+" let g:qs_second_occurrence_highlight_color = 81         " terminal vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 'gcmt/wildfire.vim'
+" let g:wildfire_objects = {
+    " \ "*" : ["i'", 'i"', "i]", "i)", "i}", "ip", "i>", 'i`', 'iw'],
+    " \ "html,xml,vue" : ["at"],
+" \ }
+" let g:wildfire_fuel_map = "<ENTER>"
+" let g:wildfire_water_map = "<BS>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Plug 'henrik/vim-indexed-search'
 " Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'terryma/vim-multiple-cursors'
-Plug 'kana/vim-textobj-user'
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Plug 'kshenoy/vim-signature'
 " Plug 'timakro/vim-searchant'
-Plug 'ap/vim-css-color'
-" Plug 'tpope/vim-repeat'
+Plug 'ap/vim-css-color', { 'for': ['vue'] }
+Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-fugitive'
 " Plug 'gregsexton/matchtag'
 " Plug 'CodeFalling/fcitx-vim-osx'
@@ -175,28 +239,29 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'dkprice/vim-easygrep'
-let g:EasyGrepCommand=1
-set grepprg=ag\ --nogroup\ --nocolor
+" Plug 'dkprice/vim-easygrep'
+" let g:EasyGrepCommand=1
+" set grepprg=ag\ --nogroup\ --nocolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'tpope/vim-surround'
-" vmap ' S'
-" vmap " S"
-" vmap ` S`
-" vmap ) S)
-" vmap ( S(
-" vmap [ S]
-" vmap ] S[
-" vmap { S{
-" vmap } S}
+Plug 'tpope/vim-surround'
+vmap ' S'
+vmap " S"
+vmap ` S`
+vmap ) S)
+vmap ( S(
+vmap [ S]
+vmap ] S[
+vmap { S{
+vmap } S}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'scrooloose/nerdcommenter'
+map \ <leader>ci
 let g:NERDSpaceDelims = 1
 let g:ft = ''
 fu! NERDCommenter_before()
@@ -222,7 +287,7 @@ endfu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'for': ['javascript', 'vue'] }
 let g:python2_host_prog = '/usr/local/bin/python'
 set rtp+=~/doc/private/UltiSnips
 let g:UltiSnipsSnippetsDir = '~/doc/private/UltiSnips'
@@ -241,13 +306,10 @@ let g:UltiSnipsSnippetDirectories=[
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'Shougo/deoplete.nvim'
-let g:deoplete#enable_at_startup = 1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', { 'for': ['vue', 'javascript'] }
+let g:ale_sign_column_always=1
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters = { 'javascript': ['eslint'] }
 let g:ale_sign_error = 'X'
@@ -269,17 +331,18 @@ nmap <c-f> <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'matze/vim-move'
 let g:move_key_modifier = 'C'
+let g:move_auto_indent = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'heavenshell/vim-jsdoc'
-let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_input_description = 1
-let g:jsdoc_additional_descriptions = 1
-let g:jsdoc_enable_es6 = 1
-let g:jsdoc_param_description_separator = ' - '
-nnoremap <localleader>do :JsDoc<cr>
+" Plug 'heavenshell/vim-jsdoc'
+" let g:jsdoc_allow_input_prompt = 1
+" let g:jsdoc_input_description = 1
+" let g:jsdoc_additional_descriptions = 1
+" let g:jsdoc_enable_es6 = 1
+" let g:jsdoc_param_description_separator = ' - '
+" nnoremap <localleader>do :JsDoc<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -288,8 +351,13 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 " Plug 'beloglazov/vim-textobj-quotes'
 " Plug 'kana/vim-textobj-line'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'sgur/vim-textobj-parameter'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'glts/vim-textobj-comment'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'kana/vim-textobj-entire'
 " Plug 'whatyouhide/vim-textobj-xmlattr'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -302,18 +370,18 @@ xmap ik <Plug>(textobj-chunk-i)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-" Plug 'thinca/vim-textobj-between'
+Plug 'thinca/vim-textobj-between'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'rhysd/vim-textobj-anyblock'
-let g:textobj#anyblock#blocks = ['(', '{', '[', '<', '"', "'", '`']
-omap iv <Plug>(textobj-anyblock-i)
-xmap iv <Plug>(textobj-anyblock-i)
-omap av <Plug>(textobj-anyblock-a)
-xmap av <Plug>(textobj-anyblock-a)
+let g:textobj#anyblock#blocks = ['(', '{', '[', '<', '"', "'", '`', 't']
+omap ij <Plug>(textobj-anyblock-i)
+xmap ij <Plug>(textobj-anyblock-i)
+omap aj <Plug>(textobj-anyblock-a)
+xmap aj <Plug>(textobj-anyblock-a)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plug 'airblade/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 
@@ -333,14 +401,14 @@ vnoremap <silent> # :<C-U>
 autocmd BufReadPost *.snippets  nnoremap more isnippet more ""<cr>endsnippet<esc>O
 autocmd BufReadPost *.snippets  set ft=sh
 autocmd BufReadPost *.vimrc  nnoremap <c-l> :PlugInstall<cr>
-autocmd BufReadPost *.vimrc  nnoremap <c-c> :PlugClean<cr>
 autocmd BufReadPost *  exe "normal! `\""
+autocmd BufReadPost *.vimrc  nnoremap <c-c> :PlugClean<cr>
 
 
 
 " 设置选项
-set clipboard=unnamedplus
-" set number
+set clipboard=unnamed
+set number
 set mouse=a
 set ignorecase
 set hlsearch
@@ -354,57 +422,58 @@ set smartcase
 set scrolloff=1
 set autowrite
 set autoread
+set nowrap
+set iskeyword+=-
 
 
 " 模拟文本对象
-nmap v<space>; vF <right>of;<left>
-nmap v<space>: vF <right>of:<left>
-nmap v<space>( vF <right>of(<left>
-nmap v<space>. vF<space><right>of.<left>
-nmap v<space>M vF<space><right>o$<left>
-nmap v.) vF.<right>of)
-nmap v.) vF.<right>of)
-nmap v<space><space> vF <right>of <left>
-nmap v., vF.<right>of)
-nmap v/' vF/<right>of'<left>
-nmap vn ^v$
+nmap v<space>; F<space><right>vf;<left>
+nmap v<space>: F<space><right>vf:<left>
+nmap v<space>( F<space><right>vf(<left>
+nmap v<space>. F<space><right>vf.<left>
+nmap v<space>M F<space><right>v$<left>
+nmap v<space><space> F<space><right>vf<space><left>
+nmap v.) F.<right>vf)
+nmap v., F.<right>vf)
+nmap v.<space> F.<right>vf<space>
+nmap vHM ^v$<left>
 
-
-nnoremap <c-h> <c-^>
-nnoremap <c-i> :w<cr>
-nnoremap U <c-r>
-nnoremap <c-m> G
-nnoremap L yyp
-vnoremap L yPgv
+cnoremap <c-a> <c-b>
+cnoremap <c-b> <left>
+cnoremap <c-f> <right>
+nnoremap q <nop>
+nnoremap Q <nop>
+noremap <c-z> <nop>
+nnoremap <c-i> <c-^>
+nnoremap <localleader>w :w<cr>
+nnoremap <localleader>q :q<cr>
+nmap L yyg]p
+vmap L y`>g]p
 nnoremap K o<esc>
 nnoremap vv <c-v>
 map H ^
 map M $
+nnoremap vt vat$o0
 nnoremap > >>
 nnoremap < <<
-nnoremap q :q<cr>
-nnoremap Q :q!<cr>
 inoremap <c-a> <c-o>^
 inoremap <c-k> <c-o>d$
 inoremap <c-e> <c-o>$
 inoremap <c-f> <right>
+inoremap <c-l> <right><bs>
+inoremap <c-u> <esc>ui
 inoremap <c-b> <left>
 inoremap <c-v> <c-r>+
 inoremap <c-s> <c-o>S
 
 
 " 根据不同程序采用不同主题
-if has("gui_vimr")
-  set background=dark
-  colorscheme onedark
-  " colorscheme gruvbox
-elseif has("gui_running")
-  set background=dark
+set background=dark
+colorscheme onedark
+if has('gui_running')
   set guifont=DejaVuSansMono\ Nerd\ Font:h18
-  colorscheme onedark
-  " colorscheme gruvbox
-else
-  set background=dark
-  colorscheme onedark
-  " colorscheme gruvbox
+  set guioptions-=r
+  set guioptions-=L
+  set guioptions-=R
+  set guioptions-=l
 endif

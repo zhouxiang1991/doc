@@ -88,7 +88,7 @@ source $ZSH/oh-my-zsh.sh
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # bash
 alias v='nvim'
-alias vim='/usr/local/Cellar/vim/8.0.0983/bin/vim'
+alias vim='/usr/local/Cellar/vim/8.0.1050/bin/vim'
 alias grep='grep --color'
 alias la='ll -a'
 alias b='babel-node'
