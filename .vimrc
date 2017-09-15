@@ -132,7 +132,7 @@ Plug 'vim-scripts/UnconditionalPaste'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fholgado/minibufexpl.vim'
 " let g:miniBufExplVSplit = 15
-nnoremap <c-o> :MBEFocus<cr>
+" nnoremap <c-o> :MBEFocus<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -166,7 +166,6 @@ nnoremap <c-o> :MBEFocus<cr>
 " Plug 'svermeulen/vim-easyclip'
 Plug 'jiangmiao/auto-pairs'
 Plug 'joshdick/onedark.vim'
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'terryma/vim-multiple-cursors'
@@ -207,19 +206,14 @@ Plug 'tpope/vim-repeat'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'vim-airline/vim-airline'
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#error_symbol = 'E:'
+" let g:airline_section_error='ale_error_count'
+" let g:airline#extensions#default#layout = [['c'],['error']]
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ' '
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline#extensions#tabline#buffer_nr_show = 1
-" map <localleader>1 :b 1<CR>
-" map <localleader>2 :b 2<CR>
-" map <localleader>3 :b 3<CR>
-" map <localleader>4 :b 4<CR>
-" map <localleader>5 :b 5<CR>
-" map <localleader>6 :b 6<CR>
-" map <localleader>7 :b 7<CR>
-" map <localleader>8 :b 8<CR>
-" map <localleader>9 :b 9<CR>
 " Plug 'vim-airline/vim-airline-themes'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -239,23 +233,14 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 'dkprice/vim-easygrep'
-" let g:EasyGrepCommand=1
-" set grepprg=ag\ --nogroup\ --nocolor
+Plug 'dkprice/vim-easygrep'
+let g:EasyGrepCommand=1
+set grepprg=ag\ --nogroup\ --nocolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'tpope/vim-surround'
-vmap ' S'
-vmap " S"
-vmap ` S`
-vmap ) S)
-vmap ( S(
-vmap [ S]
-vmap ] S[
-vmap { S{
-vmap } S}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -312,8 +297,8 @@ Plug 'w0rp/ale', { 'for': ['vue', 'javascript'] }
 let g:ale_sign_column_always=1
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters = { 'javascript': ['eslint'] }
-let g:ale_sign_error = 'X'
-let g:ale_sign_warning = '>'
+" let g:ale_sign_error = 'X'
+" let g:ale_sign_warning = '>'
 " let g:ale_echo_msg_error_Str = 'E'
 " let g:ale_echo_msg_warning_str = 'W'
 " let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -323,8 +308,8 @@ let g:ale_fix_on_save = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_text_changed = 'never'
 " nmap <silent> <C-h> <Plug>(ale_previous_wrap)
-nmap <c-x> :ALEDisable<cr>
-nmap <c-f> <Plug>(ale_next_wrap)
+nmap <localleader>x :ALEDisable<cr>
+nmap <localleader>j <Plug>(ale_next_wrap)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -350,13 +335,13 @@ let g:move_auto_indent = 1
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 " Plug 'beloglazov/vim-textobj-quotes'
-" Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-line'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'sgur/vim-textobj-parameter'
+" Plug 'sgur/vim-textobj-parameter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'glts/vim-textobj-comment'
+" Plug 'glts/vim-textobj-comment'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plug 'kana/vim-textobj-entire'
 " Plug 'whatyouhide/vim-textobj-xmlattr'
@@ -364,21 +349,16 @@ Plug 'glts/vim-textobj-comment'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Chun-Yang/vim-textobj-chunk'
-let g:textobj_chunk_no_default_key_mappings = 1
-omap ik <Plug>(textobj-chunk-i)
-xmap ik <Plug>(textobj-chunk-i)
+" nmap vc vic$o0o
+" let g:textobj_chunk_no_default_key_mappings = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-Plug 'thinca/vim-textobj-between'
+" Plug 'thinca/vim-textobj-between'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'rhysd/vim-textobj-anyblock'
-let g:textobj#anyblock#blocks = ['(', '{', '[', '<', '"', "'", '`', 't']
-omap ij <Plug>(textobj-anyblock-i)
-xmap ij <Plug>(textobj-anyblock-i)
-omap aj <Plug>(textobj-anyblock-a)
-xmap aj <Plug>(textobj-anyblock-a)
+" Plug 'rhysd/vim-textobj-anyblock'
+" let g:textobj#anyblock#blocks = ['(', '{', '[', '<', '"', "'", '`', 't']
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Plug 'airblade/vim-gitgutter'
@@ -398,12 +378,10 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 
-autocmd BufReadPost *.snippets  nnoremap more isnippet more ""<cr>endsnippet<esc>O
+" 代码片段设置文件类型方便注释
 autocmd BufReadPost *.snippets  set ft=sh
-autocmd BufReadPost *.vimrc  nnoremap <c-l> :PlugInstall<cr>
-autocmd BufReadPost *  exe "normal! `\""
-autocmd BufReadPost *.vimrc  nnoremap <c-c> :PlugClean<cr>
-
+" 打开文件回到上次位置
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif   
 
 
 " 设置选项
@@ -427,47 +405,50 @@ set iskeyword+=-
 
 
 " 模拟文本对象
-nmap v<space>; F<space><right>vf;<left>
-nmap v<space>: F<space><right>vf:<left>
-nmap v<space>( F<space><right>vf(<left>
-nmap v<space>. F<space><right>vf.<left>
-nmap v<space>M F<space><right>v$<left>
+" nmap v<space>; F<space><right>vf;<left>
+" nmap v<space>: F<space><right>vf:<left>
+" nmap v<space>( F<space><right>vf(<left>
+" nmap v<space>. F<space><right>vf.<left>
+" nmap v<space>M F<space><right>v$<left>
 nmap v<space><space> F<space><right>vf<space><left>
-nmap v.) F.<right>vf)
-nmap v., F.<right>vf)
-nmap v.<space> F.<right>vf<space>
-nmap vHM ^v$<left>
+" nmap v.) F.<right>vf)
+" nmap v., F.<right>vf)
+" nmap v.<space> F.<right>vf<space>
+" nmap vHM ^v$<left>
 
-cnoremap <c-a> <c-b>
-cnoremap <c-b> <left>
-cnoremap <c-f> <right>
+" cnoremap <c-a> <c-b>
+" cnoremap <c-b> <left>
+" cnoremap <c-f> <right>
 nnoremap q <nop>
+nnoremap U <nop>
 nnoremap Q <nop>
-noremap <c-z> <nop>
-nnoremap <c-i> <c-^>
-nnoremap <localleader>w :w<cr>
-nnoremap <localleader>q :q<cr>
+nnoremap <c-z> <nop>
+" nnoremap <c-i> <c-^>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <localleader>w <esc>:w<cr>
+nnoremap <localleader>q <esc>:q<cr>
 nmap L yyg]p
 vmap L y`>g]p
 nnoremap K o<esc>
-nnoremap vv <c-v>
-map H ^
 map M $
-nnoremap vt vat$o0
-nnoremap > >>
-nnoremap < <<
-inoremap <c-a> <c-o>^
-inoremap <c-k> <c-o>d$
-inoremap <c-e> <c-o>$
+map H ^
 inoremap <c-f> <right>
-inoremap <c-l> <right><bs>
-inoremap <c-u> <esc>ui
-inoremap <c-b> <left>
-inoremap <c-v> <c-r>+
-inoremap <c-s> <c-o>S
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" nnoremap vv <c-v>
+" nnoremap vt vat$o0
+" nnoremap > >>
+" nnoremap < <<
+" inoremap <c-a> <c-o>^
+" inoremap <c-e> <c-o>$
+" inoremap <c-l> <right><bs>
+" inoremap <c-j> <down>
+" inoremap <c-k> <up>
+" inoremap <c-b> <left>
+" inoremap <c-v> <c-r>+
 
 
-" 根据不同程序采用不同主题
 set background=dark
 colorscheme onedark
 if has('gui_running')

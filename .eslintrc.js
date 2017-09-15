@@ -1,5 +1,5 @@
 module.exports = {
-  "extends": ['airbnb', '/Users/zhouxiang/doc/private/eslintRules.js'],
+  "extends": ['airbnb-base', '/Users/zhouxiang/doc/private/eslintRules.js'],
   "plugin": [], 
   "globals": {
   }, 

@@ -1,35 +1,35 @@
 # else
 snippet el "else" i
  else {
-  ${1:${VISUAL}}
+  ${1}
 }
 endsnippet
 
 # else if
 snippet ei "else if" i
  else if (${1}) {
-  ${2:${VISUAL}}
+  ${2}
 }
 endsnippet
 
 # if
 snippet if "if"
 if (${1}) {
-  ${2:${VISUAL}}
+  ${2}
 }
 endsnippet
 
 # for
 snippet for "for"
 for (let i = 0; i < ${1}.length; i += 1) {
-  ${2:${VISUAL}}
+  ${2}
 }
 endsnippet
 
 # for of
 snippet fof "for of"
-for (const ${1:x} of ${2}) {
-  ${3:${VISUAL}}
+for (const ${1} of ${2}) {
+  ${3}
 }
 endsnippet
 
@@ -37,14 +37,14 @@ endsnippet
 # for in
 snippet fin "for in"
 for (const ${1} in ${2}) {
-  ${3:${VISUAL}}
+  ${3}
 }
 endsnippet
 
 # switch
 snippet swi
-switch (${1:value}) {
-  case '${2:one}': {
+switch (${1}) {
+  case '${2}': {
     break;
   }
   default: break;
@@ -54,15 +54,15 @@ endsnippet
 # case
 snippet case
 case '${1}': {
-  ${2:${VISUAL}}
+  ${2}
   break;
 }
 endsnippet
 
 # while
 snippet whi
-while (${1:value}) {
-  ${2:${VISUAL}}
+while (${1}) {
+  ${2}
 }
 endsnippet
 

@@ -6,12 +6,10 @@ cp /Users/zhouxiang/doc/private/package.json .
 cp /Users/zhouxiang/doc/private/.eslintrc.js .
 cp /Users/zhouxiang/doc/private/.eslintignore .
 cp /Users/zhouxiang/doc/private/jsdoc.js .
-touch index.js
-mkdir script
-mkdir lib
-mkdir lib/methods
-mkdir lib/models
-mkdir lib/schemas
-mkdir lib/classes
-mkdir test
-cp /Users/zhouxiang/doc/private/mocha.opts.js test
+cp /Users/zhouxiang/doc/private/index.js .
+cp -rf /Users/zhouxiang/doc/private/script .
+cp -rf /Users/zhouxiang/doc/private/test .
+cp -rf /Users/zhouxiang/doc/private/lib .
+touch main.js
+npm install
+git flow init -d

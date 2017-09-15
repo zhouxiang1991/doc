@@ -101,9 +101,9 @@ alias r='~/doc/private/script/rm.sh'
 alias k='cd .. && ll'
 alias l='ls -lh'
 
-alias bp='~/doc/private/script/backup.sh'
+alias bp='~/doc/private/shell-script/backup.sh'
 alias mo='./script/mocha.sh'
-alias init='~/doc/private/script/init.sh'
+alias init='~/doc/private/shell-script/init.sh'
 
 
 # phantomjs
@@ -138,7 +138,7 @@ export NODE_PATH=/usr/local/lib/node_modules
 # alias ck='git checkout'
 # alias st='git flow feature start'
 # alias fh='~/doc/private/script/git_flow_finish_feature.sh'
-alias au='~/doc/private/script/auto.sh'
+alias au='~/doc/private/shell-script/auto.sh'
 # alias re='git branch -d'
 alias gss='git status'
 alias gdf='git diff'
