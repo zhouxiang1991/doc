@@ -3,45 +3,59 @@ snippet cn "const ="
 const ${1} = ${2}
 endsnippet
 
+# const = {}
+snippet co "const = {}"
+const ${1} = {${2}};
+endsnippet
+
+# const = []
+snippet ca "const = []"
+const ${1} = [${2}];
+endsnippet
+
+# let =
+snippet le "let ="
+let ${1} = ${2}
+endsnippet
+
 # let = {}
 snippet lo "let = {}"
-let ${1} = {
-  ${2:${VISUAL}}
-};
+let ${1} = {${2}};
+endsnippet
+
+# let = []
+snippet la "let = []"
+let ${1} = [${2}];
 endsnippet
 
 # let = () => {}
-snippet lf "let = () => {}"
-let ${1} = (${2}) => {
-  ${3:${VISUAL}}
-};
-endsnippet
+# snippet lf "let = () => {}"
+# let ${1} = (${2}) => {
+  # ${3:${VISUAL}}
+# };
+# endsnippet
 
 # let async () => {} 
-snippet laf "let async () => {}"
-let ${1} = async (${2}) => {
-  ${3:${VISUAL}}
-};
-endsnippet
+# snippet laf "let async () => {}"
+# let ${1} = async (${2}) => {
+  # ${3:${VISUAL}}
+# };
+# endsnippet
 
-# const = {}
-snippet co "const = {}"
-const ${1} = {};
-endsnippet
 
 # const () => {}
-snippet cf "const () => {}"
-const ${1} = (${2}) => {
-  ${3:${VISUAL}}
-};
-endsnippet
+# snippet cf "const () => {}"
+# const ${1} = (${2}) => {
+  # ${3:${VISUAL}}
+# };
+# endsnippet
 
 # const async () => {}
-snippet caf "const async () => {}"
-const ${1} = async (${2}) => {
-  ${3:${VISUAL}}
-};
-endsnippet
+# snippet caf "const async () => {}"
+# const ${1} = async (${2}) => {
+  # ${3:${VISUAL}}
+# };
+# endsnippet
 
 # (() => {})()
 snippet iif "(() => {})()"
@@ -77,5 +91,4 @@ class ${1} {
   }
 };
 endsnippet
-
 

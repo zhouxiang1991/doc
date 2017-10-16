@@ -132,7 +132,7 @@ Plug 'vim-scripts/UnconditionalPaste'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fholgado/minibufexpl.vim'
 " let g:miniBufExplVSplit = 15
-" nnoremap <c-o> :MBEFocus<cr>
+" nnoremap <localleader>be :MBEFocus<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -428,12 +428,13 @@ nnoremap <c-z> <nop>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <localleader>w <esc>:w<cr>
 nnoremap <localleader>q <esc>:q<cr>
-nmap L yyg]p
-vmap L y`>g]p
+" nmap L yyg]p
+" vmap L y`>g]p
 nnoremap K o<esc>
-map M $
-map H ^
+" map M $
+" map H ^
 inoremap <c-f> <right>
+inoremap <c-b> <left>
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 " nnoremap vv <c-v>
@@ -445,7 +446,6 @@ inoremap <c-f> <right>
 " inoremap <c-l> <right><bs>
 " inoremap <c-j> <down>
 " inoremap <c-k> <up>
-" inoremap <c-b> <left>
 " inoremap <c-v> <c-r>+
 
 

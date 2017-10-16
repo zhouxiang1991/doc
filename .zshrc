@@ -91,20 +91,18 @@ alias v='nvim'
 alias vim='/usr/local/Cellar/vim/8.0.1050/bin/vim'
 alias grep='grep --color'
 alias la='ll -a'
-alias b='babel-node'
+alias bn='babel-node'
 alias of='open -a Finder ./'
 alias so='source ~/.zshrc'
-alias sr='source ~/.vimrc'
 alias zz='v ~/.zshrc'
 alias zr='v ~/.vimrc'
 alias r='~/doc/private/script/rm.sh'
 alias k='cd .. && ll'
-alias l='ls -lh'
-
+# alias l='ls -lh'
 alias bp='~/doc/private/shell-script/backup.sh'
 alias mo='./script/mocha.sh'
 alias init='~/doc/private/shell-script/init.sh'
-
+alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 
 # phantomjs
 export PATH=$PATH:/Users/zhouxiang/tools/phantomjs/bin/
@@ -140,8 +138,8 @@ export NODE_PATH=/usr/local/lib/node_modules
 # alias fh='~/doc/private/script/git_flow_finish_feature.sh'
 alias au='~/doc/private/shell-script/auto.sh'
 # alias re='git branch -d'
-alias gss='git status'
-alias gdf='git diff'
+# alias gss='git status'
+# alias gdf='git diff'
 # alias rt='~/doc/private/script/git_reset.sh'
 
 
@@ -169,7 +167,6 @@ alias gdf='git diff'
 # alias mn='meteor npm'
 
 export TERM=xterm-256color
-# alias m='/Applications/MacVim.app/Contents/bin/mvim'
 # alias vim='/Applications/MacVim.app/Contents/MacOs/vim'
 # bindkey -v
 # VIMODE='-- INSERT --'
@@ -183,4 +180,6 @@ export TERM=xterm-256color
 # RPROMPT='%{$fg[green]%}${VIMODE}%{$reset_color%}'
 # bindkey 'jj' vi-cmd-mode
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
