@@ -32,8 +32,21 @@ export ${1};
 endsnippet
 
 # export
-snippet ed ""
-export default (${1}) => {
+snippet eda ""
+export default async ${1} => {
+  ${2}
+};
+endsnippet
+
+
+snippet edo ""
+export default {
+  ${2}
+};
+endsnippet
+
+snippet edf ""
+export default ${1} => {
   ${2}
 };
 endsnippet

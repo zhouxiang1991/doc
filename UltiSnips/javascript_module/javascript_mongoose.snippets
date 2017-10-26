@@ -1,13 +1,12 @@
 snippet mongo ""
-import mongoose from 'mongoose';
+import Mongoose from '../classes/Mongoose.js';
 import ${1}Schema from '../schemas/$1Schema.js';
 
-mongoose.Promise = global.Promise;
-const url = process.env.MONGO_$1_URL;
-const db = mongoose.createConnection(url);
-const tableName = process.env.MONGO_$1_NAME;
-const $1 = db.model(tableName, mongoose.Schema($1Schema, {
-  versionKey: false,
-}), tableName);
-export default $1;
+class $1 extends Mongoose {
+  constructor() {
+    const { MONGO_$1_URL, MONGO_$1_NAME } = process.env;
+    super(MONGO_$1_URL, MONGO_$1_NAME, $1Schema);
+  }
+}
+export default new $1();
 endsnippet

@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "./script/run.sh",
+    "prod": "./script/prod.sh",
     "deploy": "./script/deploy/deploy.sh",
     "jsdoc": "rm ./jsDoc/ && ./node_modules/.bin/jsdoc"
   },
@@ -22,7 +23,12 @@
     "babel-core": "^6.25.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1"
+    "babel-preset-stage-3": "^6.24.1",
+    "date-utils": "^1.2.21",
+    "lodash": "^4.17.4",
+    "meteor-random": "0.0.3",
+    "moment": "^2.19.1",
+    "mongoose": "^4.12.4"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

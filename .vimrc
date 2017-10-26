@@ -22,7 +22,16 @@ au FileType vue syntax sync fromstart
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_list = [{'path': '~/knowledge/', 'path_html': '~/knowledge/html/', 'auto_export': 1}]
+let g:vimwiki_camel_case = 1  
+autocmd BufReadPost *.wiki  inoremap <tab> <c-r>=UltiSnips#ExpandSnippet()<cr>
+nnoremap <localleader>vh :Vimwiki2HTML<cr>
+nnoremap <localleader>va :VimwikiAll2HTML<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -272,7 +281,7 @@ endfu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'SirVer/ultisnips', { 'for': ['javascript', 'vue'] }
+Plug 'SirVer/ultisnips'
 let g:python2_host_prog = '/usr/local/bin/python'
 set rtp+=~/doc/private/UltiSnips
 let g:UltiSnipsSnippetsDir = '~/doc/private/UltiSnips'
@@ -280,6 +289,7 @@ let g:UltiSnipsSnippetDirectories=[
 \ 'javascript_base',
 \ 'javascript_module',
 \ 'vue',
+\ 'vimwiki',
 \ 'html',
 \ 'markdown',
 \ 'css',
@@ -419,11 +429,11 @@ nmap v<space><space> F<space><right>vf<space><left>
 " cnoremap <c-a> <c-b>
 " cnoremap <c-b> <left>
 " cnoremap <c-f> <right>
+" nnoremap <c-i> <c-^>
 nnoremap q <nop>
 nnoremap U <nop>
 nnoremap Q <nop>
 nnoremap <c-z> <nop>
-" nnoremap <c-i> <c-^>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <localleader>w <esc>:w<cr>

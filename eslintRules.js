@@ -16,6 +16,7 @@ module.exports = {
     'import/no-unresolved': 0,
     'import/extensions': 0,
     'import/no-dynamic-require': 0,
+    'import/prefer-default-export': 0,
 
     // 启用console.log
     'no-console': [
