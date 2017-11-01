@@ -10,3 +10,14 @@ class $1 extends Mongoose {
 }
 export default new $1();
 endsnippet
+
+snippet look ""
+{
+  $lookup: {
+    from: '${1}',
+    localField: '${2}',
+    foreignField: '${3}',
+    as: '${4}',
+  }
+}
+endsnippet

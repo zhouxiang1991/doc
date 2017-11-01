@@ -242,8 +242,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'dkprice/vim-easygrep'
 let g:EasyGrepCommand=1
+Plug 'dkprice/vim-easygrep'
 set grepprg=ag\ --nogroup\ --nocolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -420,7 +420,7 @@ set iskeyword+=-
 " nmap v<space>( F<space><right>vf(<left>
 " nmap v<space>. F<space><right>vf.<left>
 " nmap v<space>M F<space><right>v$<left>
-nmap v<space><space> F<space><right>vf<space><left>
+" nmap v<space><space> F<space><right>vf<space><left>
 " nmap v.) F.<right>vf)
 " nmap v., F.<right>vf)
 " nmap v.<space> F.<right>vf<space>
@@ -436,13 +436,15 @@ nnoremap Q <nop>
 nnoremap <c-z> <nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <localleader>w <esc>:w<cr>
-nnoremap <localleader>q <esc>:q<cr>
-" nmap L yyg]p
-" vmap L y`>g]p
+" nnoremap <localleader>w <esc>:w<cr>
+" nnoremap <localleader>q <esc>:q<cr>
+nnoremap <c-s> <esc>:w<cr>
+nnoremap <c-q> <esc>:q<cr>
+nmap L yyg]p
+vmap L y`>g]p
 nnoremap K o<esc>
-" map M $
-" map H ^
+map M $
+map H ^
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 """""""""""""""""""""""""""""""""""""""""""""""""""

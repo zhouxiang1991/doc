@@ -26,6 +26,8 @@ module.exports = {
       },
     ],
 
+    "no-param-reassign": ['off'],
+
     // 可以使用continue;
     'no-continue': 0,
 
