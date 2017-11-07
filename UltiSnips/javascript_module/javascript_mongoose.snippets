@@ -18,6 +18,23 @@ snippet look ""
     localField: '${2}',
     foreignField: '${3}',
     as: '${4}',
-  }
-}
+  },
+},
+endsnippet
+
+snippet unwind ""
+{
+  $unwind: {
+    path: '${1}',
+    preserveNullAndEmptyArrays: true,
+  },
+},
+endsnippet
+
+snippet project ""
+{
+  $project: {
+    ${1},
+  },
+},
 endsnippet

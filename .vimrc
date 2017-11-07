@@ -443,8 +443,9 @@ nnoremap <c-q> <esc>:q<cr>
 nmap L yyg]p
 vmap L y`>g]p
 nnoremap K o<esc>
-map M $
-map H ^
+nnoremap <c-a> <c-^>
+" map M $
+" map H ^
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 """""""""""""""""""""""""""""""""""""""""""""""""""
