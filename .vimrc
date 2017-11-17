@@ -434,12 +434,13 @@ nnoremap q <nop>
 nnoremap U <nop>
 nnoremap Q <nop>
 nnoremap <c-z> <nop>
+nnoremap <c-s> <nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
 " nnoremap <localleader>w <esc>:w<cr>
 " nnoremap <localleader>q <esc>:q<cr>
-nnoremap <c-s> <esc>:w<cr>
-nnoremap <c-q> <esc>:q<cr>
+" nnoremap <c-s> <esc>:w<cr>
+" nnoremap <c-q> <esc>:q<cr>
 nmap L yyg]p
 vmap L y`>g]p
 nnoremap K o<esc>

@@ -39,17 +39,18 @@ snippet econfirm "el-comfirm"
 this.$confirm('${1}', '${2}', {
   confirmButtonText: '确定',
   cancelButtonText: '取消',
-  type: 'warning'
+  type: 'warning',
 }).then(() => {
   this.$message({
     type: 'success',
     message: '成功!',
   });
-}).catch(() => {
+}).catch(e => {
+  console.log(e);
   this.$message({
     type: 'info',
     message: '取消',
-  });          
+  });
 });
 endsnippet
 
@@ -94,6 +95,15 @@ snippet epro
   :status=${2}>
   ${3}
 </el-progress>
+endsnippet
+
+# el-tooltip
+snippet tip
+<el-tooltip
+  content="${1}"
+  placement="${2}">
+  ${3}
+</el-tooltip>
 endsnippet
 
 
