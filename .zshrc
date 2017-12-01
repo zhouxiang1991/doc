@@ -57,6 +57,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+/usr/local/bin/mongod -f /usr/local/etc/mongod.conf
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

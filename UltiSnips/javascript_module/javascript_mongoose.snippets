@@ -38,3 +38,27 @@ snippet project ""
   },
 },
 endsnippet
+
+snippet addFields ""
+{
+  $addFields: {
+    ${1},
+  },
+},
+endsnippet
+
+snippet group ""
+{
+  $group: {
+    ${1},
+  },
+},
+endsnippet
+
+snippet op ""
+{
+  \$${1}: [
+    ${2},
+  ],
+},
+endsnippet
