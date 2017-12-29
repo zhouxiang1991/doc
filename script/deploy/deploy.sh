@@ -1,6 +1,9 @@
-tar czf ./script/deploy/程序名.tar lib/ index.js main.js package.json .babelrc
+rm -rf ./lib
+./node_modules/.bin/babel ./src -d ./lib
+tar czf ./script/deploy/程序名.tar lib/ package.json
 cd ./script/deploy
-scp 程序名.tar run.sh pm2.config.js install.sh zhouxiang@IP地址:/home/zhouxiang/程序名/
+scp 程序名.tar run.sh pm2.config.js install.sh 用户名@IP:/home/zhouxiang/程序名/
 rm 程序名.tar
+rm -rf ../../lib
 # 登陆
-ssh zhouxiang@139.196.252.87
+ssh 用户名@IP

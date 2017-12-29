@@ -22,7 +22,16 @@ au FileType vue syntax sync fromstart
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_use_mouse = 1
+let g:vimwiki_list = [{'path': '~/knowledge/', 'path_html': '~/knowledge/html/', 'auto_export': 1}]
+let g:vimwiki_camel_case = 1  
+autocmd BufReadPost *.wiki  inoremap <tab> <c-r>=UltiSnips#ExpandSnippet()<cr>
+nnoremap <localleader>vh :Vimwiki2HTML<cr>
+nnoremap <localleader>va :VimwikiAll2HTML<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -233,8 +242,8 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'dkprice/vim-easygrep'
 let g:EasyGrepCommand=1
+Plug 'dkprice/vim-easygrep'
 set grepprg=ag\ --nogroup\ --nocolor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -272,7 +281,7 @@ endfu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'SirVer/ultisnips', { 'for': ['javascript', 'vue'] }
+Plug 'SirVer/ultisnips'
 let g:python2_host_prog = '/usr/local/bin/python'
 set rtp+=~/doc/private/UltiSnips
 let g:UltiSnipsSnippetsDir = '~/doc/private/UltiSnips'
@@ -280,6 +289,7 @@ let g:UltiSnipsSnippetDirectories=[
 \ 'javascript_base',
 \ 'javascript_module',
 \ 'vue',
+\ 'vimwiki',
 \ 'html',
 \ 'markdown',
 \ 'css',
@@ -410,7 +420,7 @@ set iskeyword+=-
 " nmap v<space>( F<space><right>vf(<left>
 " nmap v<space>. F<space><right>vf.<left>
 " nmap v<space>M F<space><right>v$<left>
-nmap v<space><space> F<space><right>vf<space><left>
+" nmap v<space><space> F<space><right>vf<space><left>
 " nmap v.) F.<right>vf)
 " nmap v., F.<right>vf)
 " nmap v.<space> F.<right>vf<space>
@@ -419,18 +429,22 @@ nmap v<space><space> F<space><right>vf<space><left>
 " cnoremap <c-a> <c-b>
 " cnoremap <c-b> <left>
 " cnoremap <c-f> <right>
+" nnoremap <c-i> <c-^>
 nnoremap q <nop>
 nnoremap U <nop>
 nnoremap Q <nop>
 nnoremap <c-z> <nop>
-" nnoremap <c-i> <c-^>
+nnoremap <c-s> <nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <localleader>w <esc>:w<cr>
-nnoremap <localleader>q <esc>:q<cr>
-" nmap L yyg]p
-" vmap L y`>g]p
+" nnoremap <localleader>w <esc>:w<cr>
+" nnoremap <localleader>q <esc>:q<cr>
+nnoremap <c-e> <esc>:w<cr>
+nnoremap <c-q> <esc>:q<cr>
+nmap L yyg]p
+vmap L y`>g]p
 nnoremap K o<esc>
+nnoremap <c-a> <c-^>
 " map M $
 " map H ^
 inoremap <c-f> <right>

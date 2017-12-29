@@ -2,7 +2,7 @@ extends html, javascript, css
 
 snippet init "init"
 <template>
-  <div class="${1}-container">
+  <div class="${1}">
     <div class="filter-container">
     </div>
   </div>
@@ -10,7 +10,7 @@ snippet init "init"
 
 <script>
   export default {
-    name: '',
+    name: '$1',
     props: {
     },
     components: {
@@ -35,6 +35,9 @@ snippet init "init"
 </script>
 
 <style lang="scss" scoped>
+  .$1 {
+
+  }
 </style>
 endsnippet 
 
