@@ -1,14 +1,44 @@
 snippet mongo ""
 import Mongoose from '../classes/Mongoose.js';
-import ${1}Schema from '../schemas/$1Schema.js';
 
-class $1 extends Mongoose {
-  constructor() {
-    const { MONGO_$1_URL, MONGO_$1_NAME } = process.env;
-    super(MONGO_$1_URL, MONGO_$1_NAME, $1Schema);
+class ${1} extends Mongoose {
+  constructor(url, name, schema) {
+    super(url, name, schema);
   }
 }
-export default new $1();
+export default $1;
+endsnippet
+
+snippet model ""
+import ${1} from '../classes/$1.js';
+import ${2}Schema from '../schemas/$2.js';
+
+const {
+  MONGO_$2_URL,
+  MONGO_$2_NAME,
+} = process.env;
+export default new $1(
+  MONGO_$2_URL,
+  MONGO_$2_NAME,
+  $2Schema,
+);
+endsnippet
+
+snippet schema ""
+import { Schema } from 'mongoose';
+
+const schema = new Schema({
+  ${1}
+}, {
+  versionKey: 0,
+});
+
+schema.index({
+  // _id: 1,
+}, {
+  // unique: true,
+});
+export default schema;
 endsnippet
 
 snippet look ""

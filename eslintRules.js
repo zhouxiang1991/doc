@@ -26,7 +26,7 @@ module.exports = {
       },
     ],
 
-    "no-param-reassign": ['off'],
+    // "no-param-reassign": ['off'],
 
     // 可以使用continue;
     'no-continue': 0,
@@ -51,7 +51,7 @@ module.exports = {
     ],
 
     // 可以在赋值语句中使用return
-    'no-return-assign': 0,
+    // 'no-return-assign': 0,
 
 
     'arrow-parens': ['error', 'as-needed'],
@@ -86,6 +86,12 @@ module.exports = {
       'error',
       'always',
     ],
+    "no-eval": [
+      "off", 
+      // {
+        // "allowIndirect": true,
+      // },
+    ], // default is false
     // 'no-shadow': 0,
     'no-unused-vars': 1,
     'no-restricted-syntax': [
@@ -93,10 +99,16 @@ module.exports = {
       'forOfStatement',
     ],
     'no-await-in-loop': 0,
-    'global-require': 0,
+    // 'global-require': 0,
     // 允许使用死循环
-    'no-constant-condition': 1,
+    // 'no-constant-condition': 1,
     'max-len': 1,
-    'guard-for-in': 0,
+    // 'guard-for-in': 0,
+    // 正则表达式
+    'no-useless-escape': 0,
+    // 允许单独使用表达式
+    'no-unused-expressions': 0,
+    // 允许使用arguments
+    'prefer-rest-params': 0,
   },
 };
