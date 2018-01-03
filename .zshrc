@@ -57,7 +57,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-/usr/local/bin/mongod -f /usr/local/etc/mongod.conf
+/usr/local/Cellar/mongodb/3.6.0/bin/mongod -f /usr/local/Cellar/mongodb/mongod.conf
+# /usr/local/bin/mongod -f /usr/local/etc/mongod.conf
 
 # User configuration
 
@@ -89,22 +90,24 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # bash
-alias v='nvim'
-alias vim='/usr/local/Cellar/vim/8.0.1050/bin/vim'
-alias grep='grep --color'
+alias vim='nvim'
+# alias vim='/usr/local/Cellar/vim/8.0.1350/bin/vim'
+# alias grep='grep --color'
 alias la='ll -a'
 alias bn='babel-node'
 alias of='open -a Finder ./'
 alias so='source ~/.zshrc'
-alias zz='v ~/.zshrc'
-alias zr='v ~/.vimrc'
-alias r='~/doc/private/script/rm.sh'
-alias k='cd .. && ll'
+alias zz='vim ~/.zshrc'
+alias zr='vim ~/.vimrc'
+# alias r='~/doc/private/script/rm.sh'
+# alias k='cd .. && ll'
 # alias l='ls -lh'
 alias bp='~/doc/private/shell-script/backup.sh'
 alias mo='./script/mocha.sh'
 alias init='~/doc/private/shell-script/init.sh'
-alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+# alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+alias mvim='/usr/local/Cellar/macvim/8.0-143/bin/mvim'
+
 
 # phantomjs
 export PATH=$PATH:/Users/zhouxiang/tools/phantomjs/bin/
@@ -138,7 +141,10 @@ export NODE_PATH=/usr/local/lib/node_modules
 # alias ck='git checkout'
 # alias st='git flow feature start'
 # alias fh='~/doc/private/script/git_flow_finish_feature.sh'
+alias ad='~/doc/private/shell-script/auto-dev.sh'
+alias aa='~/doc/private/shell-script/auto-mas.sh'
 alias au='~/doc/private/shell-script/auto.sh'
+alias push='~/doc/private/shell-script/gitpush.js.sh'
 # alias re='git branch -d'
 # alias gss='git status'
 # alias gdf='git diff'

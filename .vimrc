@@ -4,7 +4,11 @@ call plug#begin('~/.vim/plugged')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'yggdroot/indentline'
+" let g:indentLine_setColors = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'posva/vim-vue'
 au BufNewFile,BufRead *.vue setf vue
 au BufNewFile,BufRead *.vue syntax sync fromstart
@@ -100,7 +104,6 @@ nnoremap <localleader>va :VimwikiAll2HTML<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 if has("nvim")
   Plug 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
@@ -466,7 +469,10 @@ inoremap <c-b> <left>
 set background=dark
 colorscheme onedark
 if has('gui_running')
-  set guifont=DejaVuSansMono\ Nerd\ Font:h18
+  " set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h18
+  " set guifont=ProggyCleanTT\ Nerd\ Font\ Complete:h24
+  " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h18
+  set guifont=InconsolataGo\ Nerd\ Font\ Complete:h18
   set guioptions-=r
   set guioptions-=L
   set guioptions-=R
