@@ -1,6 +1,6 @@
 # else
-snippet el "else" i
- else {
+snippet el "else"
+else {
   ${1}
 }
 endsnippet
@@ -22,14 +22,14 @@ endsnippet
 # for
 snippet for "for"
 for (let i = 0; i < ${1}.length; i += 1) {
-  ${2}
+  ${VISUAL}
 }
 endsnippet
 
 # for of
 snippet fof "for of"
 for (const ${1} of ${2}) {
-  ${3}
+  ${VISUAL}
 }
 endsnippet
 
@@ -69,5 +69,24 @@ endsnippet
 # continue
 snippet con
 continue;
+endsnippet
+
+# setInterval
+snippet seti
+setInterval(() => {
+  ${1}
+}, ${2});
+endsnippet
+
+# setTimeout
+snippet sett
+setTimeout(() => {
+  ${1}
+}, ${2});
+endsnippet
+
+# setTimeout
+snippet timeout
+await new Promise(r => setTimeout(r, ${1}));
 endsnippet
 

@@ -1,13 +1,13 @@
 snippet imm ""
+import $1 from '../methods/${1}.js';
+endsnippet
+
+snippet ima ""
+import assert from 'chain-assert';
+endsnippet
+
+snippet in ""
 import $1 from './${1}.js';
-endsnippet
-
-snippet irm ""
-import $1 from './lib/methods/${1}.js';
-endsnippet
-
-snippet iro ""
-import $1 from './lib/models/${1}.js';
 endsnippet
 
 snippet im_ ""
@@ -22,6 +22,10 @@ snippet imo ""
 import $1 from '../models/${1}.js';
 endsnippet
 
+snippet imc ""
+import $1 from '../classes/${1}.js';
+endsnippet
+
 snippet im "import"
 import ${1} from '$1';
 endsnippet
@@ -32,8 +36,21 @@ export ${1};
 endsnippet
 
 # export
-snippet ed ""
-export default (${1}) => {
+snippet eda ""
+export default async ${1} => {
+  ${2}
+};
+endsnippet
+
+
+snippet edo ""
+export default {
+  ${2}
+};
+endsnippet
+
+snippet edf ""
+export default ${1} => {
   ${2}
 };
 endsnippet

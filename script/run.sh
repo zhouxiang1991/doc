@@ -1,2 +1,1 @@
-export ...
-babel-node index.js
+babel-node ./src/index.js

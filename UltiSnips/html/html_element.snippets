@@ -2,7 +2,8 @@
 snippet ebtn "el-button"
 <el-button 
   type="text"
-  @click=${1}>
+  @click=${1}
+>
   ${2:${VISUAL}}
 </el-button>
 endsnippet
@@ -10,46 +11,50 @@ endsnippet
 # el-input
 snippet einput "el-input"
 <el-input 
-  ${1}>
-  ${2:${VISUAL}}
-</el-input>
+  ${1}
+/>
 endsnippet
 
 # el-switch
 snippet eswi "el-switch"
 <el-switch 
-  ${1}>
-  ${2:${VISUAL}}
-</el-switch>
+  ${1}
+/>
 endsnippet
 
 # el-form
 snippet eform "el-form"
 <el-form 
-  ${1}>
+  ${1}
+>
   <el-form-item 
-    ${2}>
+    ${2}
+  >
   </el-form-item>
-  ${3:${VISUAL}}
 </el-form>
 endsnippet
 
 # el-confirm
 snippet econfirm "el-comfirm"
-this.$confirm('${1}', '${2}', {
-  confirmButtonText: '确定',
-  cancelButtonText: '取消',
-  type: 'warning'
-}).then(() => {
+this.$confirm(
+  '${1}',
+  '${2}',
+  {
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    type: 'warning',
+  },
+).then(() => {
   this.$message({
     type: 'success',
     message: '成功!',
   });
-}).catch(() => {
+}).catch(e => {
+  console.log(e);
   this.$message({
     type: 'info',
     message: '取消',
-  });          
+  });
 });
 endsnippet
 
@@ -59,10 +64,22 @@ snippet edia "el-dialog"
   :visible.sync=""
   :before-close="handleDialogCancel"
   size="full"
-  title="">
-  <span slot="footer">
-    <el-button @click="handleDialogCancel">取 消</el-button>
-    <el-button type="primary" @click="handleDialogCancel">确 定</el-button>
+  title="标题"
+>
+  <span
+    slot="footer"
+  >
+    <el-button
+      @click="handleDialogCancel"
+    >
+      取 消
+    </el-button>
+    <el-button
+      type="primary"
+      @click="handleDialogCancel"
+    >
+      确 定
+    </el-button>
   </span>
 </el-dialog>
 endsnippet
@@ -91,9 +108,18 @@ snippet epro
 <el-progress
   type="line"
   :percentage=${1}
-  :status=${2}>
+  :status=${2}
+>
   ${3}
 </el-progress>
 endsnippet
 
-
+# el-tooltip
+snippet etip
+<el-tooltip
+  content="${1}"
+  placement="${2}"
+>
+  ${3}
+</el-tooltip>
+endsnippet
