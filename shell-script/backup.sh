@@ -1,6 +1,6 @@
 #!/bin/sh
 cd /Users/zhouxiang
-pwd
+# pwd
 cp -rf .vimrc .zshrc /Users/zhouxiang/doc/private
 cd /Users/zhouxiang/doc/private
 git add .

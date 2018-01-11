@@ -1,5 +1,5 @@
 snippet mongo ""
-import Mongoose from '../classes/Mongoose.js';
+import Mongoose from 'mongoose-improve';
 
 class ${1} extends Mongoose {
   constructor(url, name, schema) {
@@ -28,7 +28,7 @@ snippet schema ""
 import { Schema } from 'mongoose';
 
 const schema = new Schema({
-  ${1}
+  ${1:${VISUAL}}
 }, {
   versionKey: 0,
 });
