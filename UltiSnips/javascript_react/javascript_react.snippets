@@ -1,0 +1,50 @@
+snippet init "init"
+import React from 'react';
+import PropTypes from 'prop-types';
+import {
+  ScrollView,
+} from 'react-native';
+import {
+  Text,
+  View,
+} from '../';
+import NativePureBaseComponent from '../Base/NativePureBaseComponent';
+
+export default class ${1} extends NativePureBaseComponent {
+  constructor(props) {
+    super(props);
+    this.styles = {
+    };
+  }
+  render() {
+    return (
+      <View style={this.styles.rootContainer} >
+      </View>
+    );
+  }
+}
+
+$1.defaultProps = {
+};
+
+$1.propTypes = {
+};
+endsnippet
+
+snippet text "text"
+<Text ${1}>
+  ${2}
+</Text>
+endsnippet
+
+snippet view "view"
+<View ${1}>
+  ${2}
+</View>
+endsnippet
+
+snippet button "button"
+<Button ${1}>
+  ${2}
+</Button>
+endsnippet

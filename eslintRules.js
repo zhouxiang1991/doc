@@ -86,14 +86,14 @@ module.exports = {
       'error',
       'always',
     ],
-    "no-eval": [
-      "off", 
+    'no-eval': [
+      'off',
       // {
         // "allowIndirect": true,
       // },
     ], // default is false
     // 'no-shadow': 0,
-    'no-unused-vars': 1,
+    // 'no-unused-vars': 1,
     'no-restricted-syntax': [
       'error',
       'forOfStatement',
