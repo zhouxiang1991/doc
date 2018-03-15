@@ -2,56 +2,49 @@ snippet ; "();" i
 (${1});
 endsnippet
 
-# console.log()
-snippet cl "console.log"
-console.log(${1:${VISUAL}});
-endsnippet
-
-# console.log(); process.ext()
-snippet cp "console.log(); process.ext()"
-console.log(${1:${VISUAL}}); process.exit();
-endsnippet
-
-# console.log(); return;
-snippet cr "console.log(); return;"
-console.log(${1:${VISUAL}}); return;
-endsnippet
-
-# process.exit()
-snippet pe "process.exit()" w
-process.exit();
-endsnippet
-
-snippet me ""
-const ${1} = () => {
-  ${2}
-};
-export default $1;
-endsnippet
-
 # `${}`
-snippet str "`${}`" w
+snippet s "`${}`" i
 \$\{${1:${VISUAL}}}
 endsnippet
 
 # return
-snippet rt ""
+snippet r ""
 return${1};
 endsnippet
 
-snippet l1 ""
-console.log('1111111111111111111111111111111111111');
+snippet str ""
+\$\{${1}\}
 endsnippet
 
-snippet l2 ""
-console.log('22222222222222222222222222222222222222');
+snippet ,f ""
+${1}(${2}) {
+  ${3}
+},
 endsnippet
 
-snippet l3 ""
-console.log('33333333333333333333333333333333333333');
+snippet ;f ""
+${1}(${2}) => {
+  ${3}
+};
 endsnippet
 
-snippet l4 ""
-console.log('4444444444444444444444444444444444444444');
+snippet f ""
+${1}(${2}) {
+  ${3}
+}
 endsnippet
-
+snippet o ""
+${1}: {
+  ${2}
+}
+endsnippet
+snippet ,o ""
+${1}: {
+  ${2}
+},
+endsnippet
+snippet ;o ""
+${1}: {
+  ${2}
+};
+endsnippet

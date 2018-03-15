@@ -14,13 +14,28 @@ export default class ${1} extends NativePureBaseComponent {
   constructor(props) {
     super(props);
     this.styles = {
+      root: {
+      },
     };
+    this.state = {
+    };
+  }
+  setStates(data) {
+    if (this.mounted) {
+      this.setState(data);
+    }
   }
   render() {
     return (
-      <View style={this.styles.rootContainer} >
-      </View>
+    <View style={this.styles.root} >
+    </View>
     );
+  }
+  componentDidMount() {
+    this.mounted = true;
+  }
+  componentWillUnmount() {
+    this.mounted = false;
   }
 }
 
@@ -32,19 +47,19 @@ $1.propTypes = {
 endsnippet
 
 snippet text "text"
-<Text ${1}>
+<Text ${1} >
   ${2}
 </Text>
 endsnippet
 
 snippet view "view"
-<View ${1}>
+<View ${1} >
   ${2}
 </View>
 endsnippet
 
 snippet button "button"
-<Button ${1}>
+<Button ${1} >
   ${2}
 </Button>
 endsnippet

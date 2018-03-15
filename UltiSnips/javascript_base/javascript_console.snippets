@@ -1,0 +1,62 @@
+# console.log()
+snippet cc "console.log"
+console.log(${1});
+endsnippet
+
+# console.log()
+snippet cl "console.log"
+console.log(
+  ${1:${VISUAL}},
+  '$1',
+);
+endsnippet
+
+# console.log(); process.ext()
+snippet cp "console.log(); process.ext()"
+console.log(
+  ${1:${VISUAL}},
+  '$1',
+);
+process.exit();
+endsnippet
+
+# console.log(); return;
+snippet cr "console.log(); return;"
+console.log(
+  ${1:${VISUAL}},
+  '$1',
+);
+return;
+endsnippet
+
+# process.exit()
+snippet pe "process.exit()"
+process.exit();
+endsnippet
+
+snippet c8 ""
+console.log('8888888888888888888888888888888888888888');
+endsnippet
+
+snippet c9 ""
+console.log('9999999999999999999999999999999999999999');
+endsnippet
+
+snippet c9p ""
+console.log('9999999999999999999999999999999999999999');
+process.exit();
+endsnippet
+
+snippet c0 ""
+console.log('0000000000000000000000000000000000000000');
+endsnippet
+
+snippet c0p ""
+console.log('0000000000000000000000000000000000000000');
+process.exit();
+endsnippet
+
+snippet c- ""
+console.log('----------------------------------------');
+endsnippet
+

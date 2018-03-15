@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # bash
-alias vim='nvim'
+alias vim='/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/bin/vim'
 # alias vim='/usr/local/Cellar/vim/8.0.1350/bin/vim'
 # alias grep='grep --color'
 alias la='ll -a'
@@ -105,8 +105,11 @@ alias zr='vim ~/.vimrc'
 alias bp='~/doc/private/shell-script/backup.sh'
 alias mo='./script/mocha.sh'
 alias init='~/doc/private/shell-script/init.sh'
+alias pack='~/doc/private/shell-script/package.sh'
 # alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 alias mvim='/usr/local/Cellar/macvim/8.0-143/bin/mvim'
+alias publish='yarn publish --registry https://registry.yarnpkg.com'
+alias quiver='~/doc/private/shell-script/quiver.sh'
 
 
 # phantomjs
@@ -173,6 +176,8 @@ alias push='~/doc/private/shell-script/gitpush.js.sh'
 
 # meteor
 # alias mn='meteor npm'
+export ANDROID_HOME=/Users/zhouxiang/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 export TERM=xterm-256color
 # alias vim='/Applications/MacVim.app/Contents/MacOs/vim'

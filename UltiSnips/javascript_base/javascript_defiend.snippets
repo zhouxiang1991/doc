@@ -1,85 +1,37 @@
 # const =
-snippet cn "const ="
-const ${1} = ${2}
+snippet co "const ="
+const ${1} = ${2:${VISUAL}}
 endsnippet
 
-# const = {}
-snippet co "const = {}"
-const ${1} = {${2}};
+snippet ll "const ="
+let ${1} = ${2:${VISUAL}}
 endsnippet
 
-# const = []
-snippet ca "const = []"
-const ${1} = [${2}];
+snippet l ""
+let ${1};
 endsnippet
 
-# let =
-snippet le "let ="
-let ${1} = ${2}
+snippet c ""
+const ${1} = ${2};
 endsnippet
 
-# let = {}
-snippet lo "let = {}"
-let ${1} = {${2}};
-endsnippet
-
-# let = []
-snippet la "let = []"
-let ${1} = [${2}];
-endsnippet
-
-# let = () => {}
-# snippet lf "let = () => {}"
-# let ${1} = (${2}) => {
-  # ${3:${VISUAL}}
-# };
-# endsnippet
-
-# let async () => {} 
-# snippet laf "let async () => {}"
-# let ${1} = async (${2}) => {
-  # ${3:${VISUAL}}
-# };
-# endsnippet
-
-
-# const () => {}
-# snippet cf "const () => {}"
-# const ${1} = (${2}) => {
-  # ${3:${VISUAL}}
-# };
-# endsnippet
-
-# const async () => {}
-# snippet caf "const async () => {}"
-# const ${1} = async (${2}) => {
-  # ${3:${VISUAL}}
-# };
-# endsnippet
-
-# (() => {})()
 snippet iif "(() => {})()"
 (async (${1}) => {
   ${2:${VISUAL}}
 })();
 endsnippet
 
-# () => {
-# }
 snippet aw "() => {}" w
 (${1}) => {
   ${2:${VISUAL}}
 }
 endsnippet
 
-# () => {}
 snippet an "() => {}" w
 ${1} => ${2}
 endsnippet
 
-# function () {
-# }
-snippet fun "function () {}" w
+snippet fu "function () {}" w
 function (${1}) {
   ${2}
 }

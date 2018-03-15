@@ -4,8 +4,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel-node ./test/test.js",
-    "compile": "./node_modules/.bin/babel -d lib/ src/",
-    "publish": "yarn publish --registry https://registry.npmjs.com"
+    "compile": "./node_modules/.bin/babel -d lib/ src/"
   },
   "repository": {
     "type": "git",
@@ -35,11 +34,7 @@
   "eslintConfig": {
     "extends": [
       "node-project"
-    ],
-    "globals": {
-      "describe": true,
-      "it": true
-    }
+    ]
   },
   "author": "zhouxiang",
   "license": "ISC",
