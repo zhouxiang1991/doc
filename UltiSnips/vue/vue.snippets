@@ -2,15 +2,23 @@ extends html, javascript, css
 
 snippet init "init"
 <template>
-  <div class="${1}">
-    <div class="filter-container">
-    </div>
+  <div class="">
   </div>
 </template>
 
 <script>
+  import fontSize from '../mixin/fontSize.js';
+  import color from '../mixin/color.js';
+  import browser from '../mixin/browser.js';
+  import assets from '../mixin/assets.js';
+
   export default {
-    name: '$1',
+    mixins: [
+      browser,
+      assets,
+      fontSize,
+      color,
+    ],
     props: {
     },
     components: {
@@ -34,10 +42,47 @@ snippet init "init"
   };
 </script>
 
-<style lang="scss" scoped>
-  .$1 {
 
-  }
+<style lang="scss" scoped>
 </style>
 endsnippet 
 
+snippet it "init"
+<template>
+</template>
+
+<script>
+  export default {
+    mixins: [
+    ],
+    props: {
+    },
+    components: {
+    },
+    data() {
+      return {
+      };
+    },
+    created() {
+    },
+    mounted() {
+    },
+    computed: {
+    },
+    watch: {
+    },
+    filters: {
+    },
+    methods: {
+    },
+  };
+</script>
+
+
+<style module>
+</style>
+endsnippet 
+
+snippet iv "init"
+import $1 from '${1}.vue';
+endsnippet 

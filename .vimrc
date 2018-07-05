@@ -7,6 +7,13 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
+
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'joker1007/vim-markdown-quote-syntax'
+" Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0
@@ -166,7 +173,7 @@ Plug 'vim-scripts/UnconditionalPaste'
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'fholgado/minibufexpl.vim'
 let g:miniBufExplVSplit =20 
-" nnoremap <localleader>be :MBEFocus<cr>
+nnoremap <localleader>be :MBEFocus<cr>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -316,6 +323,7 @@ vmap <leader>cj ygv<leader>csvax<esc>glp
 nmap <leader>cj yy<leader>c<space>glp
 let g:NERDCustomDelimiters = {
  \ 'javascript': { 'left': '/*', 'right': '*/', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+ \ 'css': { 'left': '/*', 'right': '*/', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 let g:NERDSpaceDelims = 1
 let g:NERDRemoveExtraSpaces = 1
@@ -353,6 +361,7 @@ let g:UltiSnipsSnippetDirectories=[
 \ 'javascript_base',
 \ 'javascript_module',
 \ 'javascript_react',
+\ 'javascript_wx',
 \ 'vue',
 \ 'vimwiki',
 \ 'html',
@@ -462,6 +471,8 @@ vnoremap <silent> # :<C-U>
 
 " 代码片段设置文件类型方便注释
 autocmd BufReadPost *.snippets  set ft=sh
+autocmd BufReadPost *.wxml  set ft=html
+autocmd BufReadPost *.wxss  set ft=css
 " 打开文件回到上次位置
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif   
 

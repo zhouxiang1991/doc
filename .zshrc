@@ -57,7 +57,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-/usr/local/Cellar/mongodb/3.6.0/bin/mongod -f /usr/local/Cellar/mongodb/mongod.conf
+# /usr/local/Cellar/mongodb/3.6.0/bin/mongod -f /usr/local/Cellar/mongodb/mongod.conf
 # /usr/local/bin/mongod -f /usr/local/etc/mongod.conf
 
 # User configuration
@@ -99,6 +99,7 @@ alias of='open -a Finder ./'
 alias so='source ~/.zshrc'
 alias zz='vim ~/.zshrc'
 alias zr='vim ~/.vimrc'
+alias hh='sudo vim /etc/hosts'
 # alias r='~/doc/private/script/rm.sh'
 # alias k='cd .. && ll'
 # alias l='ls -lh'

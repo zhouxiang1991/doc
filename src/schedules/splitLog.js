@@ -1,12 +1,13 @@
 import {
   CronJob,
 } from 'cron';
-import splitLogs from '../methods/splitLogs.js';
+import splitLogs from '../methods/splitLog.js';
 
 export default new CronJob({
-  cronTime: '0 0 * * * *',
+  cronTime: '0 0 0 * * *',
   async onTick() {
-   splitLogs();
+    console.log('分割日志');
+    splitLogs();
   },
   start: false,
   timeZone: 'Asia/Shanghai',

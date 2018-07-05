@@ -1,1 +1,31 @@
+snippet ib
+@include mobile {
+  $1
+}
+endsnippet 
 
+snippet id
+@include desktop {
+  $1
+}
+endsnippet 
+
+snippet ex
+@extend .${1};
+endsnippet 
+
+snippet da
+@import '../../style/adapter.scss';
+endsnippet
+
+snippet isc
+@import '${1}.scss';
+endsnippet
+
+snippet cs
+composes: ${2} from '@/style/${1}.css';
+endsnippet
+
+snippet ci
+composes: ${2} from './${1}.css';
+endsnippet

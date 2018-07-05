@@ -3,7 +3,7 @@ snippet ; "();" i
 endsnippet
 
 # `${}`
-snippet s "`${}`" i
+snippet st "`${}`" i
 \$\{${1:${VISUAL}}}
 endsnippet
 
@@ -12,39 +12,44 @@ snippet r ""
 return${1};
 endsnippet
 
-snippet str ""
-\$\{${1}\}
-endsnippet
-
-snippet ,f ""
-${1}(${2}) {
-  ${3}
-},
-endsnippet
-
-snippet ;f ""
-${1}(${2}) => {
-  ${3}
-};
-endsnippet
-
 snippet f ""
 ${1}(${2}) {
   ${3}
-}
+},
 endsnippet
+
 snippet o ""
-${1}: {
-  ${2}
-}
-endsnippet
-snippet ,o ""
 ${1}: {
   ${2}
 },
 endsnippet
-snippet ;o ""
-${1}: {
+
+snippet a ""
+${1}: [
   ${2}
-};
+],
+endsnippet
+
+snippet s ""
+${1}: '${2}',
+endsnippet
+
+snippet cr ""
+const {
+  data,
+  errCode,
+  errMsg,
+} = checkResult(result);
+endsnippet
+
+snippet re ""
+return returnError(${1});
+endsnippet
+
+snippet rr ""
+return returnResult(data);
+endsnippet
+
+snippet tu "" i
+this.util.
 endsnippet
