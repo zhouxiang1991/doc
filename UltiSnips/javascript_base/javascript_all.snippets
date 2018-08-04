@@ -18,6 +18,12 @@ ${1}(${2}) {
 },
 endsnippet
 
+snippet af ""
+async ${1}(${2}) {
+  ${3}
+},
+endsnippet
+
 snippet o ""
 ${1}: {
   ${2}
@@ -25,14 +31,13 @@ ${1}: {
 endsnippet
 
 snippet a ""
-${1}: [
-  ${2}
-],
+'${1}', '${2}',
 endsnippet
 
 snippet s ""
 ${1}: '${2}',
 endsnippet
+
 
 snippet cr ""
 const {
@@ -52,4 +57,8 @@ endsnippet
 
 snippet tu "" i
 this.util.
+endsnippet
+
+snippet te "" i
+this.error.
 endsnippet

@@ -114,12 +114,12 @@ alias quiver='~/doc/private/shell-script/quiver.sh'
 
 
 # phantomjs
-export PATH=$PATH:/Users/zhouxiang/tools/phantomjs/bin/
+export PATH=$PATH:/Users/zhouxiang/dev/cailu/tools/phantomjs/bin/
 
 # casperjs
-export PATH=$PATH:/Users/zhouxiang/tools/casperjs/bin/
+export PATH=$PATH:/Users/zhouxiang/dev/cailu/tools/casperjs/bin/
 
-export PATH=$PATH:/Users/zhouxiang/tools/nvim-osx64/bin/
+export PATH=$PATH:/Users/zhouxiang/dev/cailu/tools/nvim-osx64/bin/
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # postgres

@@ -7,6 +7,8 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
+" Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-pug'
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'joker1007/vim-markdown-quote-syntax'
@@ -37,8 +39,8 @@ au FileType vue syntax sync fromstart
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-" " Plug 'easymotion/vim-easymotion'
-" " nmap  <Plug>(easymotion-prefix)
+Plug 'easymotion/vim-easymotion'
+nmap <Leader> <Plug>(easymotion-prefix)
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,7 +141,7 @@ au FileType vue syntax sync fromstart
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'pangloss/vim-javascript', { 'for': ['vue', 'javascript'] }
-" let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_jsdoc = 1
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,9 +173,9 @@ Plug 'vim-scripts/UnconditionalPaste'
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'fholgado/minibufexpl.vim'
-let g:miniBufExplVSplit =20 
-nnoremap <localleader>be :MBEFocus<cr>
+" Plug 'fholgado/minibufexpl.vim'
+" let g:miniBufExplVSplit =20 
+" nnoremap <localleader>be :MBEFocus<cr>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -377,10 +379,10 @@ let g:UltiSnipsSnippetDirectories=[
 
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'w0rp/ale', { 'for': ['vue', 'javascript'] }
+Plug 'w0rp/ale', { 'for': ['vue', 'javascript', 'coffee'] }
 let g:ale_sign_column_always=1
 " let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = { 'vue': ['coffeelint', 'eslint'], 'javascript': ['eslint'], 'coffee': ['coffeelint'] }
 " let g:ale_sign_error = 'X'
 " let g:ale_sign_warning = '>'
 " let g:ale_echo_msg_error_Str = 'E'
@@ -391,9 +393,11 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 0
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_text_changed = 'never'
+" let g:ale_linter_aliases = {'vue': ['coffee']}
+" let g:ale_linter_aliases = {'vue': ['coffee']}
 " nmap <silent> <C-h> <Plug>(ale_previous_wrap)
 " nmap <localleader>x :ALEDisable<cr>
-nmap <leader>j <Plug>(ale_next_wrap)
+nmap <c-i> <Plug>(ale_next_wrap)
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -405,13 +409,13 @@ let g:move_key_modifier = 'C'
 
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Plug 'heavenshell/vim-jsdoc'
-" " let g:jsdoc_allow_input_prompt = 1
-" " let g:jsdoc_input_description = 1
-" " let g:jsdoc_additional_descriptions = 1
-" " let g:jsdoc_enable_es6 = 1
-" " let g:jsdoc_param_description_separator = ' - '
-" " nnoremap <localleader>do :JsDoc<cr>
+Plug 'heavenshell/vim-jsdoc'
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_param_description_separator = ' - '
+nnoremap <localleader>do :JsDoc<cr>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -513,7 +517,7 @@ set iskeyword+=-
 " cnoremap <c-b> <left>
 " cnoremap <c-f> <right>
 " nnoremap <c-i> <c-^>
-nnoremap q <nop>
+" nnoremap q <nop>
 " nnoremap U <nop>
 nnoremap Q <nop>
 " nnoremap <c-z> <nop>
@@ -563,14 +567,14 @@ colorscheme onedark
 " colorscheme gruvbox
 " colorscheme molokai
 if has('gui_running')
-  " set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h18
+  " set guifont=DejaVu\ Sans\ Mono\ Nerd\ Font\ Complete:h15
   " set guifont=ProggyCleanTT\ Nerd\ Font\ Complete:h24
   " set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete:h18
   " set guifont=InconsolataGo\ Nerd\ Font\ Complete:h18
   " set guifont=Menlo:h14
   " set guifont=Apple Braille:h14
   " set guifont=Monace:h14
-  set guifont=Hasklug\ Nerd\ Font\ Complete:h18
+  set guifont=Hasklug\ Nerd\ Font\ Complete:h15
   " set guifont=Osaka:h14
   set guioptions-=r
   set guioptions-=L

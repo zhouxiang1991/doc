@@ -1,60 +1,10 @@
 extends html, javascript, css
-
-snippet init "init"
-<template>
-  <div class="">
-  </div>
-</template>
-
-<script>
-  import fontSize from '../mixin/fontSize.js';
-  import color from '../mixin/color.js';
-  import browser from '../mixin/browser.js';
-  import assets from '../mixin/assets.js';
-
-  export default {
-    mixins: [
-      browser,
-      assets,
-      fontSize,
-      color,
-    ],
-    props: {
-    },
-    components: {
-    },
-    data() {
-      return {
-      };
-    },
-    created() {
-    },
-    mounted() {
-    },
-    computed: {
-    },
-    watch: {
-    },
-    filters: {
-    },
-    methods: {
-    },
-  };
-</script>
-
-
-<style lang="scss" scoped>
-</style>
-endsnippet 
-
 snippet it "init"
-<template>
+<template lang="pug">
 </template>
 
 <script>
   export default {
-    mixins: [
-    ],
     props: {
     },
     components: {
@@ -65,24 +15,14 @@ snippet it "init"
     },
     created() {
     },
-    mounted() {
-    },
     computed: {
-    },
-    watch: {
-    },
-    filters: {
     },
     methods: {
     },
   };
 </script>
-
-
-<style module>
-</style>
 endsnippet 
 
-snippet iv "init"
-import $1 from '${1}.vue';
+snippet vuex
+  import { mapGetters, mapMutations } from 'vuex';
 endsnippet 
