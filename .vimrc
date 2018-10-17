@@ -7,6 +7,15 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
 let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
+" 对齐插件
+Plug 'godlygeek/tabular'
+nmap <leader>t :Tabularize /
+vmap <leader>t :Tabularize /
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
 " Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-pug'
 
@@ -237,7 +246,7 @@ Plug 'tpope/vim-repeat'
 " " Plug 'tpope/vim-fugitive'
 " " Plug 'gregsexton/matchtag'
 " Plug 'CodeFalling/fcitx-vim-osx'
- " let g:input_toggle = 1
+  " let g:input_toggle = 1
   " function! En()
      " let s:input_status = system("fcitx-remote")
      " if s:input_status == 2
@@ -251,6 +260,14 @@ Plug 'tpope/vim-repeat'
         " let l:a = system("fcitx-remote -o")
         " let g:input_toggle = 0
      " endif
+  " endfunction
+  " let g:input_toggle = 1
+  " function! En()
+    " let l:a = system("fcitx-remote -c")
+  " endfunction
+
+  " function! Zh()
+    " let l:a = system("fcitx-remote -o")
   " endfunction
   " set ttimeoutlen=150
   " autocmd InsertLeave * call En()
@@ -292,6 +309,7 @@ let g:NERDTreeWinPos=1
 let g:NERDTreeMouseMode=2
 let g:NERDTreeChDirMode=2
 " 当只剩最后一个窗口时自动关闭文件浏览器
+" 当只剩最后一个窗口时自动关闭文件浏览器
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nmap <localleader>n :NERDTreeToggle<cr>
 " 当没有文件时自动打开文件浏览器
@@ -313,18 +331,20 @@ Plug 'tpope/vim-surround'
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+" Plug 'Shougo/context_filetype.vim'
+
+
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" \ 'javascript': { 'left': '/', 'right': '*/', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 Plug 'scrooloose/nerdcommenter'
 map \ <leader>c<space>
 map \| <leader>cs
 vmap = <esc><leader>cagv<leader>c<space><leader>ca
 nmap = <leader>ca<leader>c<space><leader>ca
-vmap <leader>ch ygv=gv<esc>p
-nmap <leader>ch yy=p
 vmap <leader>cj ygv<leader>csvax<esc>glp
 nmap <leader>cj yy<leader>c<space>glp
 let g:NERDCustomDelimiters = {
- \ 'javascript': { 'left': '/*', 'right': '*/', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+ \ 'javascript': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' },
  \ 'css': { 'left': '/*', 'right': '*/', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 let g:NERDSpaceDelims = 1
@@ -409,13 +429,13 @@ let g:move_key_modifier = 'C'
 
 
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', { 'for': ['vue', 'javascript'] }
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_input_description = 1
 let g:jsdoc_additional_descriptions = 1
 let g:jsdoc_enable_es6 = 1
 let g:jsdoc_param_description_separator = ' - '
-nnoremap <localleader>do :JsDoc<cr>
+nnoremap <leader>doc :JsDoc<cr>
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -423,7 +443,7 @@ nnoremap <localleader>do :JsDoc<cr>
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-indent'
 " " Plug 'beloglazov/vim-textobj-quotes'
-" Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-line'
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " " Plug 'sgur/vim-textobj-parameter'
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -545,6 +565,17 @@ nnoremap <c-a> <c-^>
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 
+
+
+
+
+noremap <localleader>f O<cr>/*  */<left><left><left>
+
+noremap <localleader>s O<cr>//  
+
+
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 " nnoremap vv <c-v>
@@ -574,7 +605,7 @@ if has('gui_running')
   " set guifont=Menlo:h14
   " set guifont=Apple Braille:h14
   " set guifont=Monace:h14
-  set guifont=Hasklug\ Nerd\ Font\ Complete:h15
+  set guifont=Hasklug\ Nerd\ Font\ Complete:h12
   " set guifont=Osaka:h14
   set guioptions-=r
   set guioptions-=L

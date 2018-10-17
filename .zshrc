@@ -90,7 +90,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 # bash
+# export ALL_PROXY=socks5://127.0.0.1:1086
+# export http_proxy="http://127.0.0.1:12333"
+# export https_proxy="http://127.0.0.1:12333"
 alias vim='/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/bin/vim'
+alias ul='mvim /Users/zhouxiang/doc/private/UltiSnips'
 # alias vim='/usr/local/Cellar/vim/8.0.1350/bin/vim'
 # alias grep='grep --color'
 alias la='ll -a'

@@ -1,28 +1,53 @@
-extends html, javascript, css
 snippet it "init"
 <template lang="pug">
 </template>
 
 <script>
   export default {
-    props: {
-    },
-    components: {
-    },
-    data() {
-      return {
-      };
-    },
-    created() {
-    },
-    computed: {
-    },
-    methods: {
-    },
   };
 </script>
 endsnippet 
 
+snippet iv "init"
+<template>
+</template>
+
+<script>
+export default {
+  props: {
+  },
+  components: {
+  },
+  data () {
+    return {
+    }
+  },
+  computed: {
+  },
+  methods: {
+  }
+}
+</script>
+<style lang="postcss">
+</style>
+endsnippet 
+
 snippet vuex
   import { mapGetters, mapMutations } from 'vuex';
+endsnippet 
+
+snippet rt
+this.request = true;
+endsnippet 
+
+snippet rf
+this.request = false;
+endsnippet 
+
+snippet to
+if (this.request) {
+  msg.info(info.repeatOp);
+  return;
+}
+
 endsnippet 

@@ -1,3 +1,36 @@
-snippet isEmpty ""
-!${1} && !Object.keys($1).length
+snippet oem "" i
+!${1} || !Object.keys($1).length
 endsnippet
+
+snippet oex "" i
+${1} && Object.keys($1).length
+endsnippet
+
+snippet aem "" i
+!${1} || !$1.length
+endsnippet
+
+snippet aex "" i
+${1} && $1.length
+endsnippet
+
+snippet isarray "" i
+Array.isArray(${1})
+endsnippet
+
+snippet isnumber "" i
+typeof ${1} === 'number'
+endsnippet
+
+snippet isstring "" i
+typeof ${1} === 'string'
+endsnippet
+
+snippet isbool "" i
+typeof ${1} === 'boolean'
+endsnippet
+
+snippet isunefined "" i
+${1} === undefiend
+endsnippet
+
