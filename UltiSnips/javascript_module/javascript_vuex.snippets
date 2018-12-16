@@ -1,22 +1,10 @@
 extends html, javascript, css
 snippet store "init"
-const state = {
-};
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 
-const getters = {
-};
-
-const mutations = {
-};
-
-const actions = {
-};
-
-export default {
-  state,
-  getters,
-  mutations,
-  actions,
-};
+@Module
+export default class ${1} extends VuexModule {
+  ${2}
+}
 endsnippet 
 

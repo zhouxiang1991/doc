@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # export https_proxy="http://127.0.0.1:12333"
 alias vim='/usr/local/Cellar/macvim/8.0-143/MacVim.app/Contents/bin/vim'
 alias ul='mvim /Users/zhouxiang/doc/private/UltiSnips'
+alias server="ssh root@172.81.205.71"
+alias http=http-server
+alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code .'
 # alias vim='/usr/local/Cellar/vim/8.0.1350/bin/vim'
 # alias grep='grep --color'
 alias la='ll -a'

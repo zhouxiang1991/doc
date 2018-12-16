@@ -1,10 +1,3 @@
-# Object.hasOwnProperty
-snippet has "Object.hasOwnProperty"
-if (Object.hasOwnProperty.call(${1}, ${2})) {
-  ${3:${VISUAL}}
-}
-endsnippet
-
 # Object.keys
 snippet key "Object.keys" i
 Object.keys(${1:${VISUAL}})
@@ -26,7 +19,12 @@ Object.defineProperty(${1}, '${2}', {
   get: function () {
     ${3}
   },
-});
+})
+endsnippet
+
+# Object.hasOwnProperty 
+snippet has "Object.hasOwnProperty"
+if (!Object.prototype.hasOwnProperty.call(${1}, ${2})) continue
 endsnippet
 
 # Object.prototype.toString.call 

@@ -8,13 +8,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 
 " 对齐插件
-Plug 'godlygeek/tabular'
-nmap <leader>t :Tabularize /
-vmap <leader>t :Tabularize /
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+" Plug 'godlygeek/tabular'
+" nmap <leader>t :Tabularize /
+" vmap <leader>t :Tabularize /
+" nmap <Leader>a= :Tabularize /=<CR>
+" vmap <Leader>a= :Tabularize /=<CR>
+" nmap <Leader>a: :Tabularize /:\zs<CR>
+" vmap <Leader>a: :Tabularize /:\zs<CR>
 
 " Plug 'kchmck/vim-coffee-script'
 Plug 'digitaltoad/vim-pug'
